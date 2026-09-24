@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="CRIMENET Intelligence Analysis Reports"
+  >
+
+  <title>CRIMENET | Reports</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="reports.css"
+  >
+</head>
+
+<body>
+
+  <div class="reports-app">
+
+    <!-- =================================================
+         SIDEBAR
+         ================================================= -->
+
+    <aside class="sidebar">
+
+      <div class="brand">
+        <div class="brand-mark">C</div>
+
+        <div class="brand-text">
+          <strong>CRIMENET</strong>
+          <span>INTELLIGENCE ANALYSIS</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+
+        <a
+          href="dashboard.html"
+          class="nav-item"
+        >
+          <i class="fa-solid fa-chart-line"></i>
+          <span>Dashboard</span>
+        </a>
+
+        <a
+          href="cases.html"
+          class="nav-item"
+        >
+          <i class="fa-solid fa-folder-open"></i>
+          <span>Cases</span>
+        </a>
+
+        <a
+          href="intelligence.html"
+          class="nav-item"
+        >
+          <i class="fa-solid fa-brain"></i>
+          <span>Intelligence Hub</span>
+        </a>
+
+        <a
+          href="network.html"
+          class="nav-item"
+        >
+          <i class="fa-solid fa-diagram-project"></i>
+          <span>Network Analysis</span>
+        </a>
+
+        <a
+          href="entities.html"
+          class="nav-item"
+        >
+          <i class="fa-solid fa-users-viewfinder"></i>
+          <span>Entities</span>
+        </a>
+
+        <a
+          href="reports.html"
+          class="nav-item active"
+        >
+          <i class="fa-solid fa-file-lines"></i>
+          <span>Reports</span>
+        </a>
+
+      </nav>
+
+      <div class="sidebar-bottom">
+
+        
+
+        <a
+          href="settings.html"
+          class="nav-item"
+        >
+          <i class="fa-solid fa-gear"></i>
+          <span>Settings</span>
+        </a>
+
+        <a
+          href="login.html"
+          class="nav-item logout-item"
+          id="logoutBtn"
+        >
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <span>Logout</span>
+        </a>
+
+      </div>
+
+    </aside>
+
+
+    <!-- =================================================
+         MAIN CONTENT
+         ================================================= -->
+
+    <main class="main-content">
+
+      <!-- TOP HEADER -->
+
+      <header class="top-header">
+
+        <div class="breadcrumb">
+          <span>CRIMENET</span>
+          <i class="fa-solid fa-chevron-right"></i>
+          <strong>Reports</strong>
+        </div>
+
+        <div class="top-header-right">
+
+          <div class="system-status">
+            <span class="status-dot"></span>
+            <span>System Operational</span>
+          </div>
+
+          <div
+            class="header-date"
+            id="currentDate"
+          >
+            --
+          </div>
+
+          <div
+            class="header-time"
+            id="currentTime"
+          >
+            --
+          </div>
+
+          <button
+            class="icon-btn"
+            id="themeToggle"
+            type="button"
+            title="Toggle theme"
+          >
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <div class="profile">
+
+            <div
+              class="profile-avatar"
+              id="profileAvatar"
+            >
+              A
+            </div>
+
+            <div class="profile-info">
+
+              <strong id="profileName">
+                Analyst
+              </strong>
+
+              <small id="profileRole">
+                Senior Investigator
+              </small>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </header>
+
+
+      <!-- =================================================
+           PAGE HEADER
+           ================================================= -->
+
+      <section class="page-header">
+
+        <div>
+
+          <div class="eyebrow">
+            <i class="fa-solid fa-file-shield"></i>
+            Intelligence Documentation
+          </div>
+
+          <h1>Reports</h1>
+
+          <p>
+            Generate and review structured intelligence
+            reports from active case and network data.
+          </p>
+
+        </div>
+
+        <div class="page-actions">
+
+          <button
+            class="btn secondary-btn"
+            id="refreshReport"
+            type="button"
+          >
+            <i class="fa-solid fa-rotate"></i>
+            Refresh
+          </button>
+
+          <button
+            class="btn primary-btn"
+            id="printReport"
+            type="button"
+          >
+            <i class="fa-solid fa-print"></i>
+            Print Report
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           REPORT CONTROLS
+           ================================================= -->
+
+      <section class="control-card">
+
+        <div class="control-header">
+
+          <div>
+            <span class="section-label">
+              Report Configuration
+            </span>
+
+            <h2>
+              Select Investigation
+            </h2>
+          </div>
+
+        </div>
+
+        <div class="control-grid">
+
+          <div class="field">
+
+            <label for="reportCase">
+              Case
+            </label>
+
+            <select id="reportCase">
+              <option value="">
+                Select Case
+              </option>
+            </select>
+
+          </div>
+
+          <div class="field">
+
+            <label for="reportType">
+              Report Type
+            </label>
+
+            <select id="reportType">
+
+              <option value="case">
+                Case Intelligence Report
+              </option>
+
+              <option value="network">
+                Network Analysis Report
+              </option>
+
+              <option value="executive">
+                Executive Intelligence Brief
+              </option>
+
+            </select>
+
+          </div>
+
+          <div class="field">
+
+            <label for="reportStatus">
+              Status
+            </label>
+
+            <select id="reportStatus">
+
+              <option value="draft">
+                Draft
+              </option>
+
+              <option value="review">
+                Under Review
+              </option>
+
+              <option value="final">
+                Final
+              </option>
+
+            </select>
+
+          </div>
+
+          <div class="report-control-action">
+
+            <button
+              class="btn primary-btn"
+              id="generateReport"
+              type="button"
+            >
+              <i class="fa-solid fa-file-circle-plus"></i>
+              Generate
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           REPORT DOCUMENT
+           ================================================= -->
+
+      <section
+        class="report-document"
+        id="reportDocument"
+      >
+
+        <!-- REPORT HEADER -->
+
+        <div class="report-document-header">
+
+          <div class="report-brand">
+
+            <div class="report-mark">
+              C
+            </div>
+
+            <div>
+
+              <strong>
+                CRIMENET
+              </strong>
+
+              <span>
+                INTELLIGENCE ANALYSIS
+              </span>
+
+            </div>
+
+          </div>
+
+          <div class="report-meta">
+
+            <span>
+              INTELLIGENCE REPORT
+            </span>
+
+            <strong id="reportGeneratedDate">
+              --
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <!-- REPORT TITLE -->
+
+        <div class="report-title-section">
+
+          <span class="section-label">
+            Investigation Report
+          </span>
+
+          <h2 id="reportTitle">
+            Select a case to generate report
+          </h2>
+
+          <div class="report-identifiers">
+
+            <span>
+              Case ID:
+              <strong id="reportCaseId">
+                --
+              </strong>
+            </span>
+
+            <span>
+              Classification:
+              <strong id="reportClassification">
+                INTERNAL
+              </strong>
+            </span>
+
+            <span>
+              Status:
+              <strong id="reportCurrentStatus">
+                DRAFT
+              </strong>
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             EXECUTIVE SUMMARY
+             ================================================= -->
+
+        <div class="report-section">
+
+          <div class="report-section-heading">
+
+            <span class="report-number">
+              01
+            </span>
+
+            <div>
+              <span class="section-label">
+                Assessment
+              </span>
+
+              <h3>
+                Executive Summary
+              </h3>
+            </div>
+
+          </div>
+
+          <p id="reportAssessment">
+            No case has been selected. Select an
+            investigation above to populate the report.
+          </p>
+
+        </div>
+
+
+        <!-- =================================================
+             CASE OVERVIEW
+             ================================================= -->
+
+        <div class="report-section">
+
+          <div class="report-section-heading">
+
+            <span class="report-number">
+              02
+            </span>
+
+            <div>
+              <span class="section-label">
+                Investigation
+              </span>
+
+              <h3>
+                Case Overview
+              </h3>
+            </div>
+
+          </div>
+
+          <div class="report-grid">
+
+            <div class="report-data-box">
+
+              <span>
+                Case ID
+              </span>
+
+              <strong id="overviewCaseId">
+                --
+              </strong>
+
+            </div>
+
+            <div class="report-data-box">
+
+              <span>
+                Case Status
+              </span>
+
+              <strong id="overviewStatus">
+                --
+              </strong>
+
+            </div>
+
+            <div class="report-data-box">
+
+              <span>
+                Priority
+              </span>
+
+              <strong id="overviewPriority">
+                --
+              </strong>
+
+            </div>
+
+            <div class="report-data-box">
+
+              <span>
+                Last Updated
+              </span>
+
+              <strong id="overviewUpdated">
+                --
+              </strong>
+
+            </div>
+
+          </div>
+
+          <div class="summary-box">
+
+            <span>
+              Case Summary
+            </span>
+
+            <p id="reportCaseSummary">
+              --
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             NETWORK METRICS
+             ================================================= -->
+
+        <div class="report-section">
+
+          <div class="report-section-heading">
+
+            <span class="report-number">
+              03
+            </span>
+
+            <div>
+              <span class="section-label">
+                Network
+              </span>
+
+              <h3>
+                Intelligence Metrics
+              </h3>
+            </div>
+
+          </div>
+
+          <div class="report-metrics">
+
+            <div class="report-metric">
+
+              <div class="report-metric-icon">
+                <i class="fa-solid fa-users"></i>
+              </div>
+
+              <div>
+
+                <span>
+                  Entities
+                </span>
+
+                <strong id="reportEntityCount">
+                  0
+                </strong>
+
+              </div>
+
+            </div>
+
+            <div class="report-metric">
+
+              <div class="report-metric-icon">
+                <i class="fa-solid fa-link"></i>
+              </div>
+
+              <div>
+
+                <span>
+                  Relationships
+                </span>
+
+                <strong id="reportRelationshipCount">
+                  0
+                </strong>
+
+              </div>
+
+            </div>
+
+            <div class="report-metric">
+
+              <div class="report-metric-icon">
+                <i class="fa-solid fa-flag"></i>
+              </div>
+
+              <div>
+
+                <span>
+                  Intelligence Flags
+                </span>
+
+                <strong id="reportFlagCount">
+                  0
+                </strong>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             KEY ENTITIES
+             ================================================= -->
+
+        <div class="report-section">
+
+          <div class="report-section-heading">
+
+            <span class="report-number">
+              04
+            </span>
+
+            <div>
+              <span class="section-label">
+                Entity Analysis
+              </span>
+
+              <h3>
+                Key Entities
+              </h3>
+            </div>
+
+          </div>
+
+          <div
+            class="entity-list"
+            id="reportKeyEntities"
+          >
+
+            <div class="empty-report-state">
+              No entity information available.
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             INTELLIGENCE FLAGS
+             ================================================= -->
+
+        <div class="report-section">
+
+          <div class="report-section-heading">
+
+            <span class="report-number">
+              05
+            </span>
+
+            <div>
+              <span class="section-label">
+                Indicators
+              </span>
+
+              <h3>
+                Intelligence Flags
+              </h3>
+            </div>
+
+          </div>
+
+          <div
+            class="flags-list"
+            id="reportFlags"
+          >
+
+            <div class="flag-item">
+
+              <div class="flag-icon">
+                <i class="fa-solid fa-circle-info"></i>
+              </div>
+
+              <div>
+                <strong>
+                  No flags generated
+                </strong>
+
+                <span>
+                  Intelligence indicators will appear
+                  after case analysis.
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             ANALYST ASSESSMENT
+             ================================================= -->
+
+        <div class="report-section">
+
+          <div class="report-section-heading">
+
+            <span class="report-number">
+              06
+            </span>
+
+            <div>
+              <span class="section-label">
+                Analyst
+              </span>
+
+              <h3>
+                Assessment & Notes
+              </h3>
+            </div>
+
+          </div>
+
+          <div class="assessment-box">
+
+            <p id="reportAnalystAssessment">
+              Analyst assessment will be populated
+              when a case is selected.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             REPORT FOOTER
+             ================================================= -->
+
+        <footer class="report-footer">
+
+          <div>
+
+            <strong>
+              CRIMENET
+            </strong>
+
+            <span>
+              Intelligence Analysis Platform
+            </span>
+
+          </div>
+
+          <div class="report-footer-right">
+
+            <span>
+              Prepared by
+            </span>
+
+            <strong id="reportPreparedBy">
+              Analyst
+            </strong>
+
+          </div>
+
+        </footer>
+
+      </section>
+
+
+      <!-- =================================================
+           EMPTY STATE
+           ================================================= -->
+
+      <section
+        class="page-empty"
+        id="reportEmptyState"
+      >
+
+        <div class="empty-icon">
+          <i class="fa-solid fa-file-circle-question"></i>
+        </div>
+
+        <h3>
+          No Report Selected
+        </h3>
+
+        <p>
+          Select a case from the report configuration
+          panel to view its intelligence report.
+        </p>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+  <!-- =====================================================
+       SCRIPT
+       ===================================================== -->
+
+  <script src="reports.js"></script>
+
+</body>
+</html>

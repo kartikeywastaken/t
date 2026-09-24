@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profile | CRIMENET</title>
+
+    <link rel="stylesheet" href="admin-profile.css">
+</head>
+
+<body>
+
+<div class="profile-layout">
+
+    <!-- =========================
+         SIDEBAR
+         ========================= -->
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-mark">
+                CN
+            </div>
+
+            <div class="brand-text">
+                <h2>CRIMENET</h2>
+                <span>Intelligence Analysis</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="cases.html">
+                Cases
+            </a>
+
+            <a href="intelligence.html">
+                Intelligence Hub
+            </a>
+
+            <a href="network.html">
+                Network Analysis
+            </a>
+
+            <a href="entities.html">
+                Entities
+            </a>
+
+            <a href="reports.html">
+                Reports
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="settings.html">
+                Settings
+            </a>
+
+            <button id="logoutBtn" type="button">
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================
+         MAIN CONTENT
+         ========================= -->
+    <main class="main-content">
+
+        <!-- Top Header -->
+        <header class="topbar">
+
+            <div class="breadcrumb">
+                <span>CRIMENET</span>
+                <span>/</span>
+                <strong>Profile</strong>
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="system-status">
+                    <span class="status-dot"></span>
+                    <span>System Online</span>
+                </div>
+
+                <a
+                    href="admin-profile.html"
+                    class="profile-chip"
+                    aria-label="Open profile"
+                >
+
+                    <div
+                        class="profile-avatar"
+                        id="topProfileAvatar"
+                    >
+                        SA
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong id="topProfileName">
+                            System Analyst
+                        </strong>
+
+                        <small id="topProfileRole">
+                            Senior Investigator
+                        </small>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </header>
+
+
+        <!-- =========================
+             PAGE HEADER
+             ========================= -->
+        <section class="page-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    ACCOUNT
+                </p>
+
+                <h1>
+                    Administrator Profile
+                </h1>
+
+                <p class="header-description">
+                    Manage your CrimeNet identity, account information,
+                    role and security preferences.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROFILE CONTENT
+             ========================= -->
+        <section class="profile-content">
+
+            <!-- Profile Overview -->
+            <div class="profile-card profile-overview">
+
+                <div class="profile-card-header">
+
+                    <div>
+
+                        <p class="card-kicker">
+                            IDENTITY
+                        </p>
+
+                        <h2>
+                            Profile Overview
+                        </h2>
+
+                    </div>
+
+                    <span class="account-status">
+                        ACTIVE
+                    </span>
+
+                </div>
+
+
+                <div class="profile-overview-body">
+
+                    <div class="large-profile-avatar">
+
+                        <div
+                            class="avatar-image"
+                            id="profileAvatar"
+                        >
+                            SA
+                        </div>
+
+                        <label
+                            for="profileImageInput"
+                            class="avatar-upload"
+                        >
+                            Change Photo
+                        </label>
+
+                        <input
+                            type="file"
+                            id="profileImageInput"
+                            accept="image/*"
+                            hidden
+                        >
+
+                    </div>
+
+
+                    <div class="profile-identity">
+
+                        <h2 id="profileDisplayName">
+                            System Analyst
+                        </h2>
+
+                        <p id="profileDisplayRole">
+                            Senior Investigator
+                        </p>
+
+                        <span id="profileDisplayEmail">
+                            analyst@crimenet.com
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Personal Information -->
+            <div class="profile-card">
+
+                <div class="profile-card-header">
+
+                    <div>
+
+                        <p class="card-kicker">
+                            ACCOUNT DETAILS
+                        </p>
+
+                        <h2>
+                            Personal Information
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <form id="profileForm">
+
+                    <div class="form-grid">
+
+                        <!-- First Name -->
+                        <div class="form-group">
+
+                            <label for="firstName">
+                                First Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="firstName"
+                                name="firstName"
+                                placeholder="Enter first name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Last Name -->
+                        <div class="form-group">
+
+                            <label for="lastName">
+                                Last Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="lastName"
+                                name="lastName"
+                                placeholder="Enter last name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Email -->
+                        <div class="form-group full-width">
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter email address"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Designation -->
+                        <div class="form-group">
+
+                            <label for="designation">
+                                Designation
+                            </label>
+
+                            <input
+                                type="text"
+                                id="designation"
+                                name="designation"
+                                placeholder="e.g. Senior Investigator"
+                            >
+
+                        </div>
+
+
+                        <!-- Role -->
+                        <div class="form-group">
+
+                            <label for="role">
+                                Role
+                            </label>
+
+                            <select id="role" name="role">
+
+                                <option value="Administrator">
+                                    Administrator
+                                </option>
+
+                                <option value="Senior Investigator">
+                                    Senior Investigator
+                                </option>
+
+                                <option value="Analyst">
+                                    Analyst
+                                </option>
+
+                                <option value="Investigator">
+                                    Investigator
+                                </option>
+
+                                <option value="Viewer">
+                                    Viewer
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+
+                        <button
+                            type="button"
+                            id="cancelBtn"
+                            class="secondary-button"
+                        >
+                            Cancel
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="primary-button"
+                        >
+                            Save Profile
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+
+            <!-- Security -->
+            <div class="profile-card">
+
+                <div class="profile-card-header">
+
+                    <div>
+
+                        <p class="card-kicker">
+                            SECURITY
+                        </p>
+
+                        <h2>
+                            Password & Security
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="security-info">
+
+                    <div class="security-row">
+
+                        <div>
+
+                            <strong>
+                                Account Password
+                            </strong>
+
+                            <p>
+                                Update your password to keep your
+                                CrimeNet account secure.
+                            </p>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            id="changePasswordBtn"
+                            class="outline-button"
+                        >
+                            Change Password
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <form
+                    id="passwordForm"
+                    class="password-form"
+                    style="display: none;"
+                >
+
+                    <div class="form-grid">
+
+                        <div class="form-group full-width">
+
+                            <label for="currentPassword">
+                                Current Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="currentPassword"
+                                placeholder="Enter current password"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="newPassword">
+                                New Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="newPassword"
+                                placeholder="Enter new password"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="confirmPassword">
+                                Confirm Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                placeholder="Confirm new password"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-actions">
+
+                        <button
+                            type="button"
+                            id="cancelPasswordBtn"
+                            class="secondary-button"
+                        >
+                            Cancel
+                        </button>
+
+                        <button
+                            type="button"
+                            id="savePasswordBtn"
+                            class="primary-button"
+                        >
+                            Update Password
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+
+            <!-- Preferences -->
+            <div class="profile-card">
+
+                <div class="profile-card-header">
+
+                    <div>
+
+                        <p class="card-kicker">
+                            PREFERENCES
+                        </p>
+
+                        <h2>
+                            Profile Preferences
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="preference-row">
+
+                    <div>
+
+                        <strong>
+                            Interface Theme
+                        </strong>
+
+                        <p>
+                            Choose the preferred CrimeNet interface theme.
+                        </p>
+
+                    </div>
+
+                    <select id="theme">
+
+                        <option value="dark">
+                            Dark
+                        </option>
+
+                        <option value="light">
+                            Light
+                        </option>
+
+                        <option value="system">
+                            System Default
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="preference-row">
+
+                    <div>
+
+                        <strong>
+                            Display Density
+                        </strong>
+
+                        <p>
+                            Adjust the spacing used throughout the interface.
+                        </p>
+
+                    </div>
+
+                    <select id="density">
+
+                        <option value="comfortable">
+                            Comfortable
+                        </option>
+
+                        <option value="compact">
+                            Compact
+                        </option>
+
+                        <option value="spacious">
+                            Spacious
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- Message -->
+            <div
+                id="profileMessage"
+                class="profile-message"
+            ></div>
+
+
+            <!-- Danger Zone -->
+            <div class="profile-card danger-card">
+
+                <div class="profile-card-header">
+
+                    <div>
+
+                        <p class="card-kicker">
+                            ACCOUNT
+                        </p>
+
+                        <h2>
+                            Account Actions
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="danger-row">
+
+                    <div>
+
+                        <strong>
+                            Sign Out
+                        </strong>
+
+                        <p>
+                            Sign out from the current CrimeNet session.
+                        </p>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        id="accountLogoutBtn"
+                        class="danger-button"
+                    >
+                        Logout
+                    </button>
+
+                </div>
+
+
+                <div class="danger-row">
+
+                    <div>
+
+                        <strong>
+                            Delete Account
+                        </strong>
+
+                        <p>
+                            Permanently remove the administrator
+                            profile from this browser.
+                        </p>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        id="deleteAccountBtn"
+                        class="danger-button"
+                    >
+                        Delete Account
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="admin-profile.js"></script>
+
+</body>
+</html>

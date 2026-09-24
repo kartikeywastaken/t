@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Network Analysis | CRIMENET</title>
+
+  <link rel="stylesheet" href="network.css" />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+</head>
+
+<body>
+
+  <div class="network-app">
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+      <div class="brand">
+        <div class="brand-mark">C</div>
+
+        <div class="brand-text">
+          <strong>CRIMENET</strong>
+          <span>INTELLIGENCE ANALYSIS</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+
+        <a href="dashboard.html" class="nav-item">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>Dashboard</span>
+        </a>
+
+        <a href="cases.html" class="nav-item">
+          <i class="fa-solid fa-folder-open"></i>
+          <span>Cases</span>
+        </a>
+
+        <a href="intelligence.html" class="nav-item">
+          <i class="fa-solid fa-brain"></i>
+          <span>Intelligence Hub</span>
+        </a>
+
+        <a href="network.html" class="nav-item active">
+          <i class="fa-solid fa-diagram-project"></i>
+          <span>Network Analysis</span>
+        </a>
+
+        <a href="entities.html" class="nav-item">
+          <i class="fa-solid fa-users"></i>
+          <span>Entities</span>
+        </a>
+
+        <a href="reports.html" class="nav-item">
+          <i class="fa-solid fa-file-lines"></i>
+          <span>Reports</span>
+        </a>
+
+      </nav>
+
+      <div class="sidebar-bottom">
+
+        
+
+        <a href="settings.html" class="nav-item">
+          <i class="fa-solid fa-gear"></i>
+          <span>Settings</span>
+        </a>
+
+        <button
+          class="nav-item logout-item"
+          id="logoutBtn"
+          type="button"
+        >
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <span>Logout</span>
+        </button>
+
+      </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content">
+
+      <!-- TOP HEADER -->
+
+      <header class="top-header">
+
+        <div class="breadcrumb">
+          <span>CRIMENET</span>
+          <i class="fa-solid fa-chevron-right"></i>
+          <strong>Network Analysis</strong>
+        </div>
+
+        <div class="top-header-right">
+
+          <div class="system-status">
+            <span class="status-dot"></span>
+            <span>System Online</span>
+          </div>
+
+          <div class="header-date">
+            <i class="fa-regular fa-calendar"></i>
+            <span id="currentDate">--</span>
+          </div>
+
+          <div class="header-time">
+            <i class="fa-regular fa-clock"></i>
+            <span id="currentTime">--:--:--</span>
+          </div>
+
+          <button
+            class="icon-btn"
+            id="themeToggle"
+            type="button"
+            title="Toggle theme"
+          >
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <a
+            href="admin-profile.html"
+            class="profile"
+          >
+
+            <div
+              class="profile-avatar"
+              id="profileAvatar"
+            >
+              <i class="fa-solid fa-user"></i>
+            </div>
+
+            <div class="profile-info">
+              <strong id="profileName">
+                System Analyst
+              </strong>
+
+              <small id="profileRole">
+                Senior Investigator
+              </small>
+            </div>
+
+          </a>
+
+        </div>
+
+      </header>
+
+
+      <!-- =====================================================
+           PAGE HEADER
+           ===================================================== -->
+
+      <section class="page-header">
+
+        <div>
+
+          <div class="eyebrow">
+            <i class="fa-solid fa-share-nodes"></i>
+            RELATIONSHIP INTELLIGENCE
+          </div>
+
+          <h1>Network Analysis</h1>
+
+          <p>
+            Explore relationships between cases, entities,
+            organizations and locations.
+          </p>
+
+        </div>
+
+        <div class="page-actions">
+
+          <button
+            class="btn secondary-btn"
+            id="resetGraph"
+            type="button"
+          >
+            <i class="fa-solid fa-rotate-left"></i>
+            Reset
+          </button>
+
+          <button
+            class="btn primary-btn"
+            id="analyzeNetwork"
+            type="button"
+          >
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+            Analyze Network
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           METRICS
+           ===================================================== -->
+
+      <section class="metrics-grid">
+
+        <div class="metric-card">
+
+          <div class="metric-icon">
+            <i class="fa-solid fa-circle-nodes"></i>
+          </div>
+
+          <div class="metric-content">
+            <span>Entities</span>
+            <strong id="entityCount">0</strong>
+            <small>Network entities</small>
+          </div>
+
+        </div>
+
+
+        <div class="metric-card">
+
+          <div class="metric-icon">
+            <i class="fa-solid fa-link"></i>
+          </div>
+
+          <div class="metric-content">
+            <span>Relationships</span>
+            <strong id="relationshipCount">0</strong>
+            <small>Detected connections</small>
+          </div>
+
+        </div>
+
+
+        <div class="metric-card">
+
+          <div class="metric-icon">
+            <i class="fa-solid fa-layer-group"></i>
+          </div>
+
+          <div class="metric-content">
+            <span>Clusters</span>
+            <strong id="groupCount">0</strong>
+            <small>Network groups</small>
+          </div>
+
+        </div>
+
+
+        <div class="metric-card">
+
+          <div class="metric-icon">
+            <i class="fa-solid fa-crosshairs"></i>
+          </div>
+
+          <div class="metric-content">
+            <span>Analysis Status</span>
+            <strong id="networkStatus">Ready</strong>
+            <small>Current analysis</small>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           ANALYSIS CONTROLS
+           ===================================================== -->
+
+      <section class="control-card">
+
+        <div class="control-header">
+
+          <div>
+            <span class="section-label">
+              NETWORK CONTROLS
+            </span>
+
+            <h2>Analysis Parameters</h2>
+          </div>
+
+        </div>
+
+
+        <div class="control-grid">
+
+          <div class="field">
+
+            <label for="caseSelect">
+              Case
+            </label>
+
+            <select id="caseSelect">
+              <option value="all">
+                All Cases
+              </option>
+
+              <option value="CR-001">
+                CR-001
+              </option>
+
+              <option value="CR-002">
+                CR-002
+              </option>
+
+              <option value="CR-003">
+                CR-003
+              </option>
+
+              <option value="CR-004">
+                CR-004
+              </option>
+            </select>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="entityType">
+              Entity Type
+            </label>
+
+            <select id="entityType">
+
+              <option value="all">
+                All Entities
+              </option>
+
+              <option value="person">
+                Person
+              </option>
+
+              <option value="organization">
+                Organization
+              </option>
+
+              <option value="location">
+                Location
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="relationshipType">
+              Relationship
+            </label>
+
+            <select id="relationshipType">
+
+              <option value="all">
+                All Relationships
+              </option>
+
+              <option value="associate">
+                Associate
+              </option>
+
+              <option value="financial">
+                Financial
+              </option>
+
+              <option value="communication">
+                Communication
+              </option>
+
+              <option value="location">
+                Location
+              </option>
+
+              <option value="case">
+                Case Association
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="graph-actions">
+
+            <button
+              class="icon-btn"
+              id="zoomIn"
+              type="button"
+              title="Zoom In"
+            >
+              <i class="fa-solid fa-plus"></i>
+            </button>
+
+            <button
+              class="icon-btn"
+              id="zoomOut"
+              type="button"
+              title="Zoom Out"
+            >
+              <i class="fa-solid fa-minus"></i>
+            </button>
+
+            <button
+              class="icon-btn"
+              id="resetGraphControls"
+              type="button"
+              title="Reset Graph"
+            >
+              <i class="fa-solid fa-expand"></i>
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           NETWORK GRAPH
+           ===================================================== -->
+
+      <section class="network-card">
+
+        <div class="network-card-header">
+
+          <div>
+
+            <span class="section-label">
+              RELATIONSHIP MAP
+            </span>
+
+            <h2>
+              Intelligence Network
+            </h2>
+
+          </div>
+
+          <div class="network-live">
+
+            <span class="status-dot"></span>
+
+            Live Analysis
+
+          </div>
+
+        </div>
+
+
+        <div class="network-workspace">
+
+          <div
+            id="networkGraph"
+            class="network-graph"
+          ></div>
+
+
+          <!-- GRAPH LEGEND -->
+
+          <div class="graph-legend">
+
+            <div class="legend-title">
+              NETWORK LEGEND
+            </div>
+
+            <div class="legend-item">
+              <span class="legend-node person"></span>
+              Person
+            </div>
+
+            <div class="legend-item">
+              <span class="legend-node organization"></span>
+              Organization
+            </div>
+
+            <div class="legend-item">
+              <span class="legend-node location"></span>
+              Location
+            </div>
+
+            <div class="legend-item">
+              <span class="legend-line"></span>
+              Relationship
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           SELECTED ENTITY
+           ===================================================== -->
+
+      <section
+        class="selected-card"
+        id="selectedEntityCard"
+      >
+
+        <div class="selected-header">
+
+          <div>
+
+            <span class="section-label">
+              SELECTED ENTITY
+            </span>
+
+            <h2 id="selectedEntityName">
+              No Entity Selected
+            </h2>
+
+          </div>
+
+          <span
+            class="entity-type-badge"
+            id="selectedEntityType"
+          >
+            —
+          </span>
+
+        </div>
+
+
+        <div class="selected-grid">
+
+          <div class="selected-item">
+
+            <span>Entity ID</span>
+
+            <strong id="selectedEntityId">
+              —
+            </strong>
+
+          </div>
+
+
+          <div class="selected-item">
+
+            <span>Connections</span>
+
+            <strong id="selectedEntityConnections">
+              0
+            </strong>
+
+          </div>
+
+
+          <div class="selected-item">
+
+            <span>Risk Level</span>
+
+            <strong id="selectedEntityRisk">
+              —
+            </strong>
+
+          </div>
+
+
+          <div class="selected-item">
+
+            <span>Cases</span>
+
+            <strong id="selectedEntityCases">
+              0
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="selected-insight">
+
+          <div class="insight-icon">
+            <i class="fa-solid fa-lightbulb"></i>
+          </div>
+
+          <div>
+
+            <span class="detail-label">
+              NETWORK INSIGHT
+            </span>
+
+            <p id="networkInsight">
+              Select an entity from the network
+              to view analytical insights.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+  <!-- =======================================================
+       CYTOSCAPE
+       ======================================================= -->
+
+  <script src="https://unpkg.com/cytoscape@3.29.2/dist/cytoscape.min.js"></script>
+
+  <script src="network.js"></script>
+
+</body>
+</html>

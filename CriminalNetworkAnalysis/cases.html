@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Cases | CRIMENET</title>
+
+    <link rel="stylesheet" href="cases.css">
+</head>
+
+<body>
+
+<div class="cases-app">
+
+    <!-- ======================================================
+         SIDEBAR
+         ====================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-mark">
+                CN
+            </div>
+
+            <div class="brand-text">
+                <h2>CRIMENET</h2>
+                <span>Intelligence Analysis</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a
+                href="cases.html"
+                class="active"
+            >
+                Cases
+            </a>
+
+            <a href="intelligence.html">
+                Intelligence Hub
+            </a>
+
+            <a href="network.html">
+                Network Analysis
+            </a>
+
+            <a href="entities.html">
+                Entities
+            </a>
+
+            <a href="reports.html">
+                Reports
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+           
+
+            <a href="settings.html">
+                Settings
+            </a>
+
+            <button
+                type="button"
+                id="logoutBtn"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ======================================================
+         MAIN CONTENT
+         ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOP HEADER -->
+
+        <header class="top-header">
+
+            <div class="header-left">
+
+                <div class="breadcrumb">
+                    <span>CRIMENET</span>
+                    <span>/</span>
+                    <strong>Cases</strong>
+                </div>
+
+            </div>
+
+
+            <div class="header-right">
+
+                <div class="system-status">
+
+                    <span class="status-dot"></span>
+
+                    <span>
+                        System Online
+                    </span>
+
+                </div>
+
+
+                <a
+                    href="admin-profile.html"
+                    class="profile"
+                    aria-label="Open profile"
+                >
+
+                    <div
+                        class="avatar"
+                        id="profileAvatar"
+                    >
+                        SA
+                    </div>
+
+                    <div class="profile-details">
+
+                        <strong id="profileName">
+                            System Analyst
+                        </strong>
+
+                        <small id="profileRole">
+                            Senior Investigator
+                        </small>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </header>
+
+
+        <!-- ==================================================
+             PAGE HEADER
+             ================================================== -->
+
+        <section class="page-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    INVESTIGATION
+                </p>
+
+                <h1>
+                    Case Management
+                </h1>
+
+                <p class="page-description">
+                    Monitor active investigations, review case
+                    intelligence and manage investigative records.
+                </p>
+
+            </div>
+
+
+            <div class="header-actions">
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="refreshCases"
+                >
+                    Refresh
+                </button>
+
+                <button
+                    type="button"
+                    class="primary-button"
+                    id="newCaseBtn"
+                >
+                    + New Case
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             CASE METRICS
+             ================================================== -->
+
+        <section class="case-metrics">
+
+            <div class="metric-card">
+
+                <div class="metric-label">
+                    TOTAL CASES
+                </div>
+
+                <div
+                    class="metric-value"
+                    id="totalCases"
+                >
+                    0
+                </div>
+
+                <div class="metric-note">
+                    All investigations
+                </div>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <div class="metric-label">
+                    ACTIVE CASES
+                </div>
+
+                <div
+                    class="metric-value"
+                    id="activeCases"
+                >
+                    0
+                </div>
+
+                <div class="metric-note">
+                    Currently under investigation
+                </div>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <div class="metric-label">
+                    HIGH PRIORITY
+                </div>
+
+                <div
+                    class="metric-value"
+                    id="highPriorityCases"
+                >
+                    0
+                </div>
+
+                <div class="metric-note">
+                    Requiring attention
+                </div>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <div class="metric-label">
+                    CLOSED
+                </div>
+
+                <div
+                    class="metric-value"
+                    id="closedCases"
+                >
+                    0
+                </div>
+
+                <div class="metric-note">
+                    Resolved investigations
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             FILTER BAR
+             ================================================== -->
+
+        <section class="filter-card">
+
+            <div class="search-box">
+
+                <span class="search-icon">
+                    ⌕
+                </span>
+
+                <input
+                    type="search"
+                    id="caseSearch"
+                    placeholder="Search cases, locations or investigators..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <div class="filter-group">
+
+                <label for="statusFilter">
+                    Status
+                </label>
+
+                <select id="statusFilter">
+
+                    <option value="all">
+                        All Status
+                    </option>
+
+                    <option value="active">
+                        Active
+                    </option>
+
+                    <option value="under-investigation">
+                        Under Investigation
+                    </option>
+
+                    <option value="closed">
+                        Closed
+                    </option>
+
+                    <option value="archived">
+                        Archived
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="filter-group">
+
+                <label for="priorityFilter">
+                    Priority
+                </label>
+
+                <select id="priorityFilter">
+
+                    <option value="all">
+                        All Priority
+                    </option>
+
+                    <option value="critical">
+                        Critical
+                    </option>
+
+                    <option value="high">
+                        High
+                    </option>
+
+                    <option value="medium">
+                        Medium
+                    </option>
+
+                    <option value="low">
+                        Low
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="filter-group">
+
+                <label for="sortCases">
+                    Sort
+                </label>
+
+                <select id="sortCases">
+
+                    <option value="newest">
+                        Newest First
+                    </option>
+
+                    <option value="oldest">
+                        Oldest First
+                    </option>
+
+                    <option value="priority">
+                        Priority
+                    </option>
+
+                    <option value="name">
+                        Case Name
+                    </option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             CASE TABLE
+             ================================================== -->
+
+        <section class="cases-card">
+
+            <div class="section-header">
+
+                <div>
+
+                    <p class="section-kicker">
+                        CASE REGISTER
+                    </p>
+
+                    <h2>
+                        Investigations
+                    </h2>
+
+                </div>
+
+
+                <span
+                    class="result-count"
+                    id="resultCount"
+                >
+                    0 cases
+                </span>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table class="cases-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Case
+                            </th>
+
+                            <th>
+                                Investigation
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Priority
+                            </th>
+
+                            <th>
+                                Entities
+                            </th>
+
+                            <th>
+                                Updated
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="casesTableBody">
+
+                        <!-- Cases injected by JavaScript -->
+
+                    </tbody>
+
+                </table>
+
+
+                <!-- EMPTY STATE -->
+
+                <div
+                    class="empty-state"
+                    id="emptyState"
+                    style="display:none;"
+                >
+
+                    <div class="empty-icon">
+                        ◇
+                    </div>
+
+                    <h3>
+                        No Cases Found
+                    </h3>
+
+                    <p>
+                        No investigations match the current
+                        search or filter criteria.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        id="clearFilters"
+                    >
+                        Clear Filters
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             CASE DETAIL PANEL
+             ================================================== -->
+
+        <section
+            class="case-detail-card"
+            id="caseDetailCard"
+            style="display:none;"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <p class="section-kicker">
+                        CASE INTELLIGENCE
+                    </p>
+
+                    <h2 id="detailCaseTitle">
+                        Case Details
+                    </h2>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="close-button"
+                    id="closeCaseDetail"
+                    aria-label="Close case details"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="case-detail-grid">
+
+                <div class="detail-block">
+
+                    <span class="detail-label">
+                        CASE ID
+                    </span>
+
+                    <strong id="detailCaseId">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-block">
+
+                    <span class="detail-label">
+                        STATUS
+                    </span>
+
+                    <strong id="detailCaseStatus">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-block">
+
+                    <span class="detail-label">
+                        PRIORITY
+                    </span>
+
+                    <strong id="detailCasePriority">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-block">
+
+                    <span class="detail-label">
+                        LAST UPDATED
+                    </span>
+
+                    <strong id="detailCaseUpdated">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="detail-description">
+
+                <span class="detail-label">
+                    INTELLIGENCE SUMMARY
+                </span>
+
+                <p id="detailCaseSummary">
+                    No case summary available.
+                </p>
+
+            </div>
+
+
+            <div class="detail-actions">
+
+                <a
+                    href="intelligence.html"
+                    class="secondary-button"
+                    id="openIntelligence"
+                >
+                    Intelligence Hub
+                </a>
+
+                <a
+                    href="network.html"
+                    class="secondary-button"
+                    id="openNetwork"
+                >
+                    Network Analysis
+                </a>
+
+                <a
+                    href="reports.html"
+                    class="primary-button"
+                    id="openReport"
+                >
+                    Generate Report
+                </a>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<!-- ==========================================================
+     NEW CASE MODAL
+     ========================================================== -->
+
+<div
+    class="modal-overlay"
+    id="caseModal"
+    style="display:none;"
+>
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <p class="section-kicker">
+                    INVESTIGATION
+                </p>
+
+                <h2>
+                    Create New Case
+                </h2>
+
+            </div>
+
+            <button
+                type="button"
+                class="close-button"
+                id="closeCaseModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="newCaseForm">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label for="newCaseId">
+                        Case ID
+                    </label>
+
+                    <input
+                        type="text"
+                        id="newCaseId"
+                        placeholder="CR-005"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="newCaseTitle">
+                        Investigation Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="newCaseTitle"
+                        placeholder="Investigation title"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="newCaseStatus">
+                        Status
+                    </label>
+
+                    <select id="newCaseStatus">
+
+                        <option value="active">
+                            Active
+                        </option>
+
+                        <option value="under-investigation">
+                            Under Investigation
+                        </option>
+
+                        <option value="closed">
+                            Closed
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="newCasePriority">
+                        Priority
+                    </label>
+
+                    <select id="newCasePriority">
+
+                        <option value="critical">
+                            Critical
+                        </option>
+
+                        <option value="high">
+                            High
+                        </option>
+
+                        <option value="medium" selected>
+                            Medium
+                        </option>
+
+                        <option value="low">
+                            Low
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group full-width">
+
+                    <label for="newCaseSummary">
+                        Intelligence Summary
+                    </label>
+
+                    <textarea
+                        id="newCaseSummary"
+                        rows="4"
+                        placeholder="Enter case intelligence summary..."
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="cancelNewCase"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    Create Case
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================================
+     SCRIPT
+     ========================================================== -->
+
+<script src="cases.js"></script>
+
+</body>
+</html>

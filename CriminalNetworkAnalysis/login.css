@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0b0f16;
+    color: #ffffff;
+}
+
+/* Login Page */
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-box {
+    width: 420px;
+    padding: 45px;
+    background: #151a23;
+    border: 1px solid #252c38;
+    border-radius: 14px;
+}
+
+.login-box h1 {
+    text-align: center;
+    font-size: 32px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #929aaa;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 35px;
+}
+
+.login-box label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #d9dde5;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 13px 14px;
+    margin-bottom: 22px;
+    border: 1px solid #303846;
+    border-radius: 7px;
+    outline: none;
+    background: #0e131b;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.login-box input:focus {
+    border-color: #4f8cff;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 7px;
+    background: #4f8cff;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    color-scheme: dark;
+}
+
+.login-box button:hover {
+    background: #3d7bea;
+}
+.password-wrapper {
+    position: relative;
+    margin-bottom: 22px;
+}
+
+.password-wrapper input {
+    margin-bottom: 0;
+    padding-right: 45px;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    width: 28px !important;
+    height: 28px;
+    padding: 5px !important;
+    
+    background: transparent !important;
+    color: #929aaa;
+    border: none;
+    cursor: pointer;
+}
+
+.password-toggle:hover {
+    background: transparent !important;
+    color: #ffffff;
+}
+
+.password-toggle svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Hide browser's default password eye */
+input::-ms-reveal,
+input::-ms-clear {
+    display: none;
+}
+
+input::-webkit-credentials-auto-fill-button {
+    display: none !important;
+}
+
+.login-box input:-webkit-autofill,
+.login-box input:-webkit-autofill:hover,
+.login-box input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #ffffff;
+    -webkit-box-shadow: 0 0 0px 1000px #0e131b inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+

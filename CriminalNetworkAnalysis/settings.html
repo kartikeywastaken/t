@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Settings | CRIMENET</title>
+
+    <link rel="stylesheet" href="settings.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+<div class="settings-app">
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="brand">
+            <div class="brand-mark">C</div>
+
+            <div class="brand-text">
+                <strong>CRIMENET</strong>
+                <span>INTELLIGENCE ANALYSIS</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item" data-page="dashboard">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="cases.html" class="nav-item" data-page="cases">
+                <i class="fa-solid fa-folder-open"></i>
+                <span>Cases</span>
+            </a>
+
+            <a href="intelligence.html" class="nav-item" data-page="intelligence">
+                <i class="fa-solid fa-brain"></i>
+                <span>Intelligence Hub</span>
+            </a>
+
+            <a href="network.html" class="nav-item" data-page="network">
+                <i class="fa-solid fa-diagram-project"></i>
+                <span>Network Analysis</span>
+            </a>
+
+            <a href="entities.html" class="nav-item" data-page="entities">
+                <i class="fa-solid fa-users"></i>
+                <span>Entities</span>
+            </a>
+
+            <a href="reports.html" class="nav-item" data-page="reports">
+                <i class="fa-solid fa-file-lines"></i>
+                <span>Reports</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+
+            <a
+                href="settings.html"
+                class="nav-item active"
+                data-page="settings"
+            >
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+            <a
+                href="login.html"
+                class="nav-item logout-btn"
+                id="logoutBtn"
+            >
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content">
+
+        <!-- TOP HEADER -->
+
+        <header class="top-header">
+
+            <div class="breadcrumb">
+                <span>CRIMENET</span>
+                <i class="fa-solid fa-chevron-right"></i>
+                <strong>Settings</strong>
+            </div>
+
+            <div class="top-header-right">
+
+                <div class="system-status">
+                    <span class="status-dot"></span>
+                    <span>System Online</span>
+                </div>
+
+                <div class="header-date">
+                    <span id="currentDate">--</span>
+                    <span id="currentTime">--:--:--</span>
+                </div>
+
+                <button
+                    class="icon-btn"
+                    id="themeToggle"
+                    type="button"
+                    title="Toggle theme"
+                    aria-label="Toggle theme"
+                >
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+
+                <a href="admin-profile.html" class="profile">
+
+                    <div class="avatar" id="profileAvatar">
+                        SA
+                    </div>
+
+                    <div class="profile-info">
+                        <strong id="profileName">System Analyst</strong>
+                        <small id="profileRole">Senior Investigator</small>
+                    </div>
+
+                </a>
+
+            </div>
+
+        </header>
+
+
+        <!-- =====================================================
+             PAGE CONTENT
+             ===================================================== -->
+
+        <section class="page-content">
+
+            <div class="page-header">
+
+                <div>
+                    <div class="eyebrow">
+                        <i class="fa-solid fa-sliders"></i>
+                        SYSTEM CONFIGURATION
+                    </div>
+
+                    <h1>Settings</h1>
+
+                    <p>
+                        Manage your CRIMENET workspace, notifications,
+                        security, privacy and account preferences.
+                    </p>
+                </div>
+
+                <div class="page-header-actions">
+
+                    <button
+                        class="btn btn-secondary"
+                        id="resetSettingsBtn"
+                        type="button"
+                    >
+                        <i class="fa-solid fa-rotate-left"></i>
+                        Reset
+                    </button>
+
+                    <button
+                        class="btn btn-primary"
+                        id="saveSettingsBtn"
+                        type="button"
+                    >
+                        <i class="fa-solid fa-check"></i>
+                        Save Changes
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================================
+                 SETTINGS LAYOUT
+                 ===================================================== -->
+
+            <div class="settings-layout">
+
+
+                <!-- SETTINGS NAVIGATION -->
+
+                <aside class="settings-nav">
+
+                    <button
+                        class="settings-tab active"
+                        type="button"
+                        data-tab="appearance"
+                    >
+                        <i class="fa-solid fa-palette"></i>
+
+                        <span>
+                            <strong>Appearance</strong>
+                            <small>Theme & display</small>
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="settings-tab"
+                        type="button"
+                        data-tab="notifications"
+                    >
+                        <i class="fa-solid fa-bell"></i>
+
+                        <span>
+                            <strong>Notifications</strong>
+                            <small>Alerts & updates</small>
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="settings-tab"
+                        type="button"
+                        data-tab="security"
+                    >
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                        <span>
+                            <strong>Security</strong>
+                            <small>Access & protection</small>
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="settings-tab"
+                        type="button"
+                        data-tab="privacy"
+                    >
+                        <i class="fa-solid fa-user-lock"></i>
+
+                        <span>
+                            <strong>Privacy & Data</strong>
+                            <small>Privacy & application data</small>
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="settings-tab"
+                        type="button"
+                        data-tab="help"
+                    >
+                        <i class="fa-solid fa-circle-question"></i>
+
+                        <span>
+                            <strong>Help & Support</strong>
+                            <small>Guides & assistance</small>
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="settings-tab"
+                        type="button"
+                        data-tab="about"
+                    >
+                        <i class="fa-solid fa-circle-info"></i>
+
+                        <span>
+                            <strong>About CRIMENET</strong>
+                            <small>Application information</small>
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="settings-tab"
+                        type="button"
+                        data-tab="account"
+                    >
+                        <i class="fa-solid fa-user-gear"></i>
+
+                        <span>
+                            <strong>Account Actions</strong>
+                            <small>Account management</small>
+                        </span>
+                    </button>
+
+                </aside>
+
+
+                <!-- =================================================
+                     SETTINGS CONTENT
+                     ================================================= -->
+
+                <div class="settings-content">
+
+
+                    <!-- =================================================
+                         1. APPEARANCE
+                         ================================================= -->
+
+                    <section
+                        class="settings-section active"
+                        data-section="appearance"
+                    >
+
+                        <div class="section-heading">
+
+                            <div>
+                                <span class="section-kicker">
+                                    VISUAL SYSTEM
+                                </span>
+
+                                <h2>Appearance</h2>
+
+                                <p>
+                                    Customize how CRIMENET looks and
+                                    behaves on your screen.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <!-- THEME -->
+
+                        <div class="settings-card">
+
+                            <div class="settings-card-header">
+
+                                <div class="card-icon">
+                                    <i class="fa-solid fa-circle-half-stroke"></i>
+                                </div>
+
+                                <div>
+                                    <h3>Theme</h3>
+                                    <p>
+                                        Choose the visual theme for
+                                        the intelligence console.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="theme-options">
+
+                                <button
+                                    type="button"
+                                    class="theme-card active"
+                                    data-theme="dark"
+                                >
+
+                                    <div class="theme-preview dark-preview">
+
+                                        <div class="preview-top"></div>
+
+                                        <div class="preview-body">
+
+                                            <div class="preview-sidebar"></div>
+
+                                            <div class="preview-content">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="theme-card-info">
+                                        <strong>Dark Navy</strong>
+                                        <small>
+                                            Intelligence console theme
+                                        </small>
+                                    </div>
+
+                                    <i class="fa-solid fa-circle-check theme-check"></i>
+
+                                </button>
+
+
+                                <button
+                                    type="button"
+                                    class="theme-card"
+                                    data-theme="light"
+                                >
+
+                                    <div class="theme-preview light-preview">
+
+                                        <div class="preview-top"></div>
+
+                                        <div class="preview-body">
+
+                                            <div class="preview-sidebar"></div>
+
+                                            <div class="preview-content">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="theme-card-info">
+                                        <strong>Light</strong>
+                                        <small>
+                                            High visibility workspace
+                                        </small>
+                                    </div>
+
+                                    <i class="fa-solid fa-circle-check theme-check"></i>
+
+                                </button>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="theme">
+                                    Theme Selection
+                                </label>
+
+                                <select
+                                    id="theme"
+                                    class="setting-select"
+                                >
+                                    <option value="dark">
+                                        Dark Navy
+                                    </option>
+
+                                    <option value="light">
+                                        Light
+                                    </option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- DISPLAY -->
+
+                        <div class="settings-card">
+
+                            <div class="settings-card-header">
+
+                                <div class="card-icon">
+                                    <i class="fa-solid fa-display"></i>
+                                </div>
+
+                                <div>
+                                    <h3>Display</h3>
+                                    <p>
+                                        Adjust workspace density and
+                                        sidebar behavior.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-grid">
+
+                                <div class="form-group">
+
+                                    <label for="density">
+                                        Display Density
+                                    </label>
+
+                                    <select
+                                        id="density"
+                                        class="setting-select"
+                                    >
+                                        <option value="comfortable">
+                                            Comfortable
+                                        </option>
+
+                                        <option value="compact">
+                                            Compact
+                                        </option>
+                                    </select>
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="sidebarBehavior">
+                                        Sidebar Behavior
+                                    </label>
+
+                                    <select
+                                        id="sidebarBehavior"
+                                        class="setting-select"
+                                    >
+                                        <option value="expanded">
+                                            Expanded
+                                        </option>
+
+                                        <option value="collapsed">
+                                            Collapsed
+                                        </option>
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =================================================
+                         2. NOTIFICATIONS
+                         ================================================= -->
+
+                    <section
+                        class="settings-section"
+                        data-section="notifications"
+                    >
+
+                        <div class="section-heading">
+
+                            <div>
+                                <span class="section-kicker">
+                                    ALERT MANAGEMENT
+                                </span>
+
+                                <h2>Notifications</h2>
+
+                                <p>
+                                    Control which operational updates
+                                    are delivered to your workspace.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="settings-card">
+
+                            <div class="settings-card-header">
+
+                                <div class="card-icon">
+                                    <i class="fa-solid fa-bell"></i>
+                                </div>
+
+                                <div>
+                                    <h3>Notification Preferences</h3>
+                                    <p>
+                                        Configure individual CRIMENET
+                                        notification categories.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <!-- CASE PROCESSING -->
+
+                            <div class="setting-row">
+
+                                <div class="setting-info">
+
+                                    <div class="setting-icon">
+                                        <i class="fa-solid fa-folder-open"></i>
+                                    </div>
+
+                                    <div>
+                                        <strong>
+                                            Case-Processing Notifications
+                                        </strong>
+
+                                        <p>
+                                            Receive updates when case
+                                            processing is completed,
+                                            updated or requires attention.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <label class="toggle">
+
+                                    <input
+                                        type="checkbox"
+                                        id="caseNotifications"
+                                        checked
+                                    >
+
+                                    <span class="toggle-slider"></span>
+
+                                </label>
+
+                            </div>
+
+
+                            <div class="setting-divider"></div>
+
+
+                            <!-- FLAGS -->
+
+                            <div class="setting-row">
+
+                                <div class="setting-info">
+
+                                    <div class="setting-icon">
+                                        <i class="fa-solid fa-flag"></i>
+                                    </div>
+
+                                    <div>
+                                        <strong>
+                                            Flag & Alert Notifications
+                                        </strong>
+
+                                        <p>
+                                            Receive notifications for
+                                            important flags, alerts and
+                                            high-priority intelligence.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <label class="toggle">
+
+                                    <input
+                                        type="checkbox"
+                                        id="flagNotifications"
+                                        checked
+                                    >
+
+                                    <span class="toggle-slider"></span>
+
+                                </label>
+
+                            </div>
+
+
+                            <div class="setting-divider"></div>
+
+
+                            <!-- SYSTEM -->
+
+                            <div class="setting-row">
+
+                                <div class="setting-info">
+
+                                    <div class="setting-icon">
+                                        <i class="fa-solid fa-bullhorn"></i>
+                                    </div>
+
+                                    <div>
+                                        <strong>
+                                            System Announcements
+                                        </strong>
+
+                                        <p>
+                                            Receive CRIMENET system
+                                            announcements and service
+                                            updates.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <label class="toggle">
+
+                                    <input
+                                        type="checkbox"
+                                        id="systemNotifications"
+                                        checked
+                                    >
+
+                                    <span class="toggle-slider"></span>
+
+                                </label>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =================================================
+                         3. SECURITY
+                         ================================================= -->
+
+                    <section
+                        class="settings-section"
+                        data-section="security"
+                    >
+
+                        <div class="section-heading">
+
+                            <div>
+                                <span class="section-kicker">
+                                    ACCESS CONTROL
+                                </span>
+
+                                <h2>Security</h2>
+
+                                <p>
+                                    Manage account access and
+                                    security-related controls.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="security-status">
+
+                            <div class="security-status-icon">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+
+                            <div>
+                                <strong>Security Status</strong>
+                                <span>
+                                    Security controls are active
+                                </span>
+                            </div>
+
+                            <span class="status-pill success">
+                                Protected
+                            </span>
+
+                        </div>
+
+
+                        <!-- PASSWORD -->
+
+                        <div class="settings-card">
+
+                            <div class="settings-card-header">
+
+                                <div class="card-icon">
+                                    <i class="fa-solid fa-key"></i>
+                                </div>
+
+                                <div>
+                                    <h3>Password</h3>
+                                    <p>
+                                        Change your account password.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <button
+                                class="btn btn-secondary"
+                                id="changePasswordBtn"
+                                type="button"
+                            >
+                                <i class="fa-solid fa-key"></i>
+                                Change Password
+                            </button>
+
+
+                            <form
+                                id="passwordForm"
+                                class="password-form"
+                                style="display:none;"
+                            >
+
+                                <div class="form-grid">
+
+                                    <div class="form-group">
+
+                                        <label for="currentPassword">
+                                            Current Password
+                                        </label>
+
+                                        <input
+                                            type="password"
+                                            id="currentPassword"
+                                            placeholder="Enter current password"
+                                        >
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label for="newPassword">
+                                            New Password
+                                        </label>
+
+                                        <input
+                                            type="password"
+                                            id="newPassword"
+                                            placeholder="Minimum 8 characters"
+                                        >
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label for="confirmPassword">
+                                            Confirm Password
+                                        </label>
+
+                                        <input
+                                            type="password"
+                                            id="confirmPassword"
+                                            placeholder="Confirm new password"
+                                        >
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="button-row">
+
+                                    <button
+                                        type="button"
+                                        class="btn btn-secondary"
+                                        id="cancelPasswordBtn"
+                                    >
+                                        Cancel
+                                    </button>
+
+                                    <button
+                                        type="submit"
+                                        class="btn btn-primary"
+                                    >
+                                        <i class="fa-solid fa-check"></i>
+                                        Update Password
+                                    </button>
+
+                                </div>
+
+                            </form>
+
+                        </div>
+
+
+                        <!-- ACCESS CONTROLS -->
+
+                        <div class="settings-card">
+
+                            <div class="settings-card-header">
+
+                                <div class="card-icon">
+                                    <i class="fa-solid fa-lock"></i>
+                                </div>
+
+                                <div>
+                                    <h3>Access & Security Controls</h3>
+                                    <p>
+                                        Review account and access-related
+                                        information.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="security-actions">
+
+                                <button
+                                    class="btn btn-secondary"
+                                    id="securityLogBtn"
+                                    type="button"
+                                >
+                                    <i class="fa-solid fa-list-check"></i>
+                                    Security Log
+                                </button>
+
+                                <button
+                                    class="btn btn-secondary"
+                                    id="viewActivityBtn"
+                                    type="button"
+                                >
+                                    <i class="fa-solid fa-clock-rotate-left"></i>
+                                    Activity Log
+                                </button>
+
+                                <button
+                                    class="btn btn-secondary"
+                                    id="sessionManagerBtn"
+                                    type="button"
+                                >
+                                    <i class="fa-solid fa-laptop"></i>
+                                    Active Sessions
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =================================================
+                         4. PRIVACY & DATA
+                         ================================================= -->
+
+                    <section
+                        class="settings-section"
+                        data-section="privacy"
+                    >
+
+                        <div class="section-heading">
+
+                            <div>
+                                <span class="section-kicker">
+                                    PRIVACY & DATA
+                                </span>
+
+                                <h2>Privacy & Data</h2>
+
+                                <p>
+                                    Manage privacy preferences and
+                                    application data stored by CRIMENET.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ACTIVITY LOGGING -->
+
+                        <div class="settings-card">
+
+                            <div class="setting-row">
+
+                                <div class="setting-info">
+
+                                    <div class="setting-icon">
+                                        <i class="fa-solid fa-chart-line"></i>
+                                    </div>
+
+                                    <div>
+                                        <strong>Activity Logging</strong>
+
+                                        <p>
+                                            Allow CRIMENET to keep a local
+                                            record of important application
+                                            activity.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <label class="toggle">
+
+                                    <input
+                                        type="checkbox"
+                                        id="activityLogging"
+                                        checked
+                                    >
+
+                                    <span class="toggle-slider"></span>
+
+                                </label>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- DATA MANAGEMENT -->
+
+                        <div class="settings-card">
+
+                            <div class="settings-card-header">
+
+                                <div class="card-icon">
+                                    <i class="fa-solid fa-database"></i>
+                                </div>
+
+                                <div>
+                                    <h3>Application Data</h3>
+
+                                    <p>
+                                        Export or remove data stored
+                                        locally by this application.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="data-actions">
+
+                                <button
+                                    class="btn btn-primary"
+                                    id="exportDataBtn"
+                                    type="button"
+                                >
+                                    <i class="fa-solid fa-file-export"></i>
+                                    Export Application Data
+                                </button>
+
+                                <button
+                                    class="btn btn-danger"
+                                    id="clearDataBtn"
+                                    type="button"
+                                >
+                                    <i class="fa-solid fa-trash"></i>
+                                    Clear Application Data
+                                </button>
+
+                            </div>
+
+
+                            <div class="info-box">
+
+                                <i class="fa-solid fa-circle-info"></i>
+
+                                <div>
+                                    <strong>Local Application Data</strong>
+
+                                    <p>
+                                        This demo stores operational
+                                        information in the browser's
+                                        local storage.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =================================================
+                         5. HELP & SUPPORT
+                         ================================================= -->
+
+                    <section
+                        class="settings-section"
+                        data-section="help"
+                    >
+
+                        <div class="section-heading">
+
+                            <div>
+                                <span class="section-kicker">
+                                    ASSISTANCE
+                                </span>
+
+                                <h2>Help & Support</h2>
+
+                                <p>
+                                    Find guidance and support information
+                                    for using CRIMENET.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="help-grid">
+
+                            <button
+                                class="help-card"
+                                id="helpCenterBtn"
+                                type="button"
+                            >
+
+                                <div class="help-icon">
+                                    <i class="fa-solid fa-circle-question"></i>
+                                </div>
+
+                                <div>
+                                    <strong>Help Center</strong>
+
+                                    <p>
+                                        Find answers to common
+                                        CRIMENET questions.
+                                    </p>
+                                </div>
+
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </button>
+
+
+                            <button
+                                class="help-card"
+                                id="userGuideBtn"
+                                type="button"
+                            >
+
+                                <div class="help-icon">
+                                    <i class="fa-solid fa-book"></i>
+                                </div>
+
+                                <div>
+                                    <strong>User Guide</strong>
+
+                                    <p>
+                                        Learn how to use the intelligence
+                                        analysis workspace.
+                                    </p>
+                                </div>
+
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </button>
+
+
+                            <button
+                                class="help-card"
+                                id="documentationBtn"
+                                type="button"
+                            >
+
+                                <div class="help-icon">
+                                    <i class="fa-solid fa-file-lines"></i>
+                                </div>
+
+                                <div>
+                                    <strong>System Documentation</strong>
+
+                                    <p>
+                                        Review application features
+                                        and system information.
+                                    </p>
+                                </div>
+
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </button>
+
+
+                            <button
+                                class="help-card"
+                                id="supportBtn"
+                                type="button"
+                            >
+
+                                <div class="help-icon">
+                                    <i class="fa-solid fa-headset"></i>
+                                </div>
+
+                                <div>
+                                    <strong>Contact Support</strong>
+
+                                    <p>
+                                        Get assistance with CRIMENET
+                                        application issues.
+                                    </p>
+                                </div>
+
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </button>
+
+
+                            <button
+                                class="help-card"
+                                id="reportIssueBtn"
+                                type="button"
+                            >
+
+                                <div class="help-icon">
+                                    <i class="fa-solid fa-bug"></i>
+                                </div>
+
+                                <div>
+                                    <strong>Report an Issue</strong>
+
+                                    <p>
+                                        Report a technical or interface
+                                        problem.
+                                    </p>
+                                </div>
+
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </button>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =================================================
+                         6. ABOUT CRIMENET
+                         ================================================= -->
+
+                    <section
+                        class="settings-section"
+                        data-section="about"
+                    >
+
+                        <div class="section-heading">
+
+                            <div>
+                                <span class="section-kicker">
+                                    SYSTEM INFORMATION
+                                </span>
+
+                                <h2>About CRIMENET</h2>
+
+                                <p>
+                                    Application information and
+                                    environment details.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="settings-card about-card">
+
+                            <div class="about-logo">
+                                <div class="brand-mark">C</div>
+                            </div>
+
+                            <div class="about-content">
+
+                                <span class="about-kicker">
+                                    INTELLIGENCE ANALYSIS PLATFORM
+                                </span>
+
+                                <h3>CRIMENET</h3>
+
+                                <p>
+                                    CRIMENET is an intelligence analysis
+                                    workspace designed to organize cases,
+                                    intelligence records, entities,
+                                    relationships and analytical reports.
+                                </p>
+
+
+                                <div class="about-meta">
+
+                                    <div>
+                                        <span>Application</span>
+                                        <strong>CRIMENET</strong>
+                                    </div>
+
+                                    <div>
+                                        <span>Version</span>
+                                        <strong>1.0.0</strong>
+                                    </div>
+
+                                    <div>
+                                        <span>Environment</span>
+                                        <strong>Demo</strong>
+                                    </div>
+
+                                    <div>
+                                        <span>System Status</span>
+                                        <strong class="online-text">
+                                            Operational
+                                        </strong>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="settings-card">
+
+                            <div class="about-links">
+
+                                <button
+                                    class="text-link"
+                                    id="termsBtn"
+                                    type="button"
+                                >
+                                    Terms of Service
+                                </button>
+
+                                <button
+                                    class="text-link"
+                                    id="privacyBtn"
+                                    type="button"
+                                >
+                                    Privacy Policy
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =================================================
+                         7. ACCOUNT ACTIONS
+                         ================================================= -->
+
+                    <section
+                        class="settings-section"
+                        data-section="account"
+                    >
+
+                        <div class="section-heading">
+
+                            <div>
+                                <span class="section-kicker">
+                                    ACCOUNT MANAGEMENT
+                                </span>
+
+                                <h2>Account Actions</h2>
+
+                                <p>
+                                    Manage your CRIMENET account and
+                                    session.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <!-- PROFILE -->
+
+                        <div class="settings-card">
+
+                            <div class="settings-card-header">
+
+                                <div class="card-icon">
+                                    <i class="fa-solid fa-user-gear"></i>
+                                </div>
+
+                                <div>
+                                    <h3>Profile</h3>
+
+                                    <p>
+                                        Update your profile information,
+                                        designation and profile image.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <a
+                                href="admin-profile.html"
+                                class="btn btn-secondary"
+                            >
+                                <i class="fa-solid fa-user-pen"></i>
+                                Edit Profile
+                            </a>
+
+                        </div>
+
+
+                        <!-- LOGOUT -->
+
+                        <div class="settings-card">
+
+                            <div class="settings-card-header">
+
+                                <div class="card-icon">
+                                    <i class="fa-solid fa-right-from-bracket"></i>
+                                </div>
+
+                                <div>
+                                    <h3>Logout</h3>
+
+                                    <p>
+                                        End your current CRIMENET session.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <button
+                                class="btn btn-secondary"
+                                id="accountLogoutBtn"
+                                type="button"
+                            >
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                                Logout
+                            </button>
+
+                        </div>
+
+
+                        <!-- DANGER ZONE -->
+
+                        <div class="settings-card danger-zone">
+
+                            <div class="danger-header">
+
+                                <div class="danger-icon">
+                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                </div>
+
+                                <div>
+                                    <span class="danger-label">
+                                        DANGER ZONE
+                                    </span>
+
+                                    <h3>Delete Account</h3>
+
+                                    <p>
+                                        Permanently remove your CRIMENET
+                                        account and associated local
+                                        application information.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="danger-warning">
+
+                                <i class="fa-solid fa-circle-exclamation"></i>
+
+                                <span>
+                                    This action is permanent and
+                                    requires confirmation.
+                                </span>
+
+                            </div>
+
+
+                            <button
+                                class="btn btn-danger"
+                                id="deleteAccountBtn"
+                                type="button"
+                            >
+                                <i class="fa-solid fa-trash-can"></i>
+                                Delete Account
+                            </button>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+            </div>
+
+
+            <!-- SETTINGS MESSAGE -->
+
+            <div
+                class="settings-message"
+                id="settingsMessage"
+                style="display:none;"
+            ></div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- =====================================================
+     DELETE ACCOUNT MODAL
+     ===================================================== -->
+
+<div
+    class="modal"
+    id="deleteModal"
+    aria-hidden="true"
+>
+
+    <div class="modal-backdrop"></div>
+
+    <div class="modal-dialog">
+
+        <button
+            class="modal-close"
+            id="closeDeleteModal"
+            type="button"
+            aria-label="Close"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="modal-icon danger">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+
+        <h3>Delete Account?</h3>
+
+        <p>
+            This action will remove the locally stored CRIMENET
+            profile and application data from this browser.
+        </p>
+
+        <div class="delete-confirm-box">
+
+            <label for="deleteConfirmation">
+                Type <strong>DELETE</strong> to confirm
+            </label>
+
+            <input
+                type="text"
+                id="deleteConfirmation"
+                placeholder="DELETE"
+                autocomplete="off"
+            >
+
+        </div>
+
+        <div class="modal-actions">
+
+            <button
+                class="btn btn-secondary"
+                id="cancelDeleteBtn"
+                type="button"
+            >
+                Cancel
+            </button>
+
+            <button
+                class="btn btn-danger"
+                id="confirmDeleteBtn"
+                type="button"
+            >
+                <i class="fa-solid fa-trash-can"></i>
+                Delete Account
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div class="toast" id="toast"></div>
+
+
+<script src="settings.js"></script>
+
+</body>
+</html>

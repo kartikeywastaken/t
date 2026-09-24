@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Entities | CRIMENET Intelligence Analysis</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="entities.css" />
+</head>
+
+<body>
+
+  <div class="dashboard-app">
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+      <div class="brand">
+        <div class="brand-mark">C</div>
+
+        <div class="brand-text">
+          <strong>CRIMENET</strong>
+          <span>INTELLIGENCE ANALYSIS</span>
+        </div>
+      </div>
+
+      <nav class="navigation">
+
+        <a href="dashboard.html" class="nav-item">
+          <span class="nav-icon">⌂</span>
+          <span>Dashboard</span>
+        </a>
+
+        <a href="cases.html" class="nav-item">
+          <span class="nav-icon">▣</span>
+          <span>Cases</span>
+        </a>
+
+        <a href="intelligence.html" class="nav-item">
+          <span class="nav-icon">◈</span>
+          <span>Intelligence Hub</span>
+        </a>
+
+        <a href="network.html" class="nav-item">
+          <span class="nav-icon">⌘</span>
+          <span>Network Analysis</span>
+        </a>
+
+        <a href="entities.html" class="nav-item active">
+          <span class="nav-icon">◎</span>
+          <span>Entities</span>
+        </a>
+
+        <a href="reports.html" class="nav-item">
+          <span class="nav-icon">▤</span>
+          <span>Reports</span>
+        </a>
+
+      </nav>
+
+      <div class="sidebar-bottom">
+
+      
+
+        <a href="settings.html" class="nav-item">
+          <span class="nav-icon">⚙</span>
+          <span>Settings</span>
+        </a>
+
+        <a href="login.html" class="nav-item logout">
+          <span class="nav-icon">↪</span>
+          <span>Logout</span>
+        </a>
+
+      </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content">
+
+      <!-- TOP HEADER -->
+
+      <header class="top-header">
+
+        <div class="breadcrumb">
+          <span>CRIMENET</span>
+          <span class="breadcrumb-separator">/</span>
+          <strong>Entities</strong>
+        </div>
+
+        <div class="top-header-right">
+
+          <div class="system-status">
+            <span class="status-dot"></span>
+            <span>System Operational</span>
+          </div>
+
+          <div class="top-date" id="currentDate">
+            --
+          </div>
+
+          <div class="top-time" id="currentTime">
+            --
+          </div>
+
+          <button
+            type="button"
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
+            ◐
+          </button>
+
+          <a href="admin-profile.html" class="profile">
+
+            <div
+              class="avatar"
+              id="profileAvatar"
+            >
+              SA
+            </div>
+
+            <div class="profile-info">
+              <strong id="profileName">
+                System Analyst
+              </strong>
+
+              <small id="profileRole">
+                Senior Investigator
+              </small>
+            </div>
+
+          </a>
+
+        </div>
+
+      </header>
+
+
+      <!-- =====================================================
+           PAGE HEADER
+           ===================================================== -->
+
+      <section class="page-header">
+
+        <div>
+          <div class="eyebrow">
+            INTELLIGENCE DATABASE
+          </div>
+
+          <h1>Entities</h1>
+
+          <p>
+            Manage, search and investigate persons,
+            organizations, locations and other intelligence entities.
+          </p>
+        </div>
+
+        <div class="page-actions">
+
+          <button
+            type="button"
+            class="btn btn-secondary"
+            id="refreshEntities"
+          >
+            <span>↻</span>
+            Refresh
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-primary"
+            id="newEntityBtn"
+          >
+            <span>+</span>
+            New Entity
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           METRICS
+           ===================================================== -->
+
+      <section class="metrics-grid">
+
+        <article class="metric-card">
+
+          <div class="metric-icon">◎</div>
+
+          <div class="metric-content">
+            <span class="metric-label">
+              Total Entities
+            </span>
+
+            <strong id="totalEntities">
+              0
+            </strong>
+
+            <small>
+              All indexed entities
+            </small>
+          </div>
+
+        </article>
+
+
+        <article class="metric-card">
+
+          <div class="metric-icon">●</div>
+
+          <div class="metric-content">
+            <span class="metric-label">
+              Persons
+            </span>
+
+            <strong id="personEntities">
+              0
+            </strong>
+
+            <small>
+              Individual entities
+            </small>
+          </div>
+
+        </article>
+
+
+        <article class="metric-card">
+
+          <div class="metric-icon">▣</div>
+
+          <div class="metric-content">
+            <span class="metric-label">
+              Organizations
+            </span>
+
+            <strong id="organizationEntities">
+              0
+            </strong>
+
+            <small>
+              Corporate / criminal groups
+            </small>
+          </div>
+
+        </article>
+
+
+        <article class="metric-card">
+
+          <div class="metric-icon">⌖</div>
+
+          <div class="metric-content">
+            <span class="metric-label">
+              Locations
+            </span>
+
+            <strong id="locationEntities">
+              0
+            </strong>
+
+            <small>
+              Geographic entities
+            </small>
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- =====================================================
+           ENTITY WORKSPACE
+           ===================================================== -->
+
+      <section class="content-card">
+
+        <div class="card-header">
+
+          <div>
+            <h2>Entity Registry</h2>
+
+            <p>
+              Search and filter intelligence records.
+            </p>
+          </div>
+
+          <div class="result-count" id="resultCount">
+            0 entities
+          </div>
+
+        </div>
+
+
+        <!-- FILTERS -->
+
+        <div class="filters">
+
+          <div class="search-box">
+
+            <span class="search-icon">⌕</span>
+
+            <input
+              type="search"
+              id="entitySearch"
+              placeholder="Search entity name, ID, type..."
+              autocomplete="off"
+            />
+
+          </div>
+
+
+          <div class="filter-control">
+
+            <label for="entityTypeFilter">
+              Type
+            </label>
+
+            <select id="entityTypeFilter">
+
+              <option value="all">
+                All Types
+              </option>
+
+              <option value="person">
+                Person
+              </option>
+
+              <option value="organization">
+                Organization
+              </option>
+
+              <option value="location">
+                Location
+              </option>
+
+              <option value="vehicle">
+                Vehicle
+              </option>
+
+              <option value="account">
+                Account
+              </option>
+
+              <option value="other">
+                Other
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="filter-control">
+
+            <label for="entityRiskFilter">
+              Risk
+            </label>
+
+            <select id="entityRiskFilter">
+
+              <option value="all">
+                All Risk Levels
+              </option>
+
+              <option value="critical">
+                Critical
+              </option>
+
+              <option value="high">
+                High
+              </option>
+
+              <option value="medium">
+                Medium
+              </option>
+
+              <option value="low">
+                Low
+              </option>
+
+              <option value="unknown">
+                Unknown
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="filter-control">
+
+            <label for="sortEntities">
+              Sort
+            </label>
+
+            <select id="sortEntities">
+
+              <option value="updated-desc">
+                Recently Updated
+              </option>
+
+              <option value="updated-asc">
+                Oldest Updated
+              </option>
+
+              <option value="name-asc">
+                Name A–Z
+              </option>
+
+              <option value="name-desc">
+                Name Z–A
+              </option>
+
+              <option value="risk">
+                Risk Level
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <button
+            type="button"
+            class="clear-filters"
+            id="clearEntityFilters"
+          >
+            Clear
+          </button>
+
+        </div>
+
+
+        <!-- =================================================
+             ENTITY TABLE
+             ================================================= -->
+
+        <div class="table-wrapper">
+
+          <table class="data-table">
+
+            <thead>
+
+              <tr>
+
+                <th>ENTITY</th>
+
+                <th>TYPE</th>
+
+                <th>RISK</th>
+
+                <th>CASES</th>
+
+                <th>RELATIONSHIPS</th>
+
+                <th>LAST UPDATED</th>
+
+                <th>ACTION</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody id="entitiesTableBody">
+              <!-- Generated by entities.js -->
+            </tbody>
+
+          </table>
+
+        </div>
+
+
+        <!-- EMPTY STATE -->
+
+        <div
+          class="empty-state"
+          id="emptyState"
+          style="display: none;"
+        >
+
+          <div class="empty-icon">
+            ◎
+          </div>
+
+          <h3>No entities found</h3>
+
+          <p>
+            Try changing your search or filter criteria.
+          </p>
+
+          <button
+            type="button"
+            class="btn btn-secondary"
+            id="clearEmptyFilters"
+          >
+            Clear Filters
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           ENTITY DETAILS
+           ===================================================== -->
+
+      <section
+        class="detail-card"
+        id="entityDetailCard"
+        style="display: none;"
+      >
+
+        <div class="detail-header">
+
+          <div>
+
+            <span class="eyebrow">
+              ENTITY PROFILE
+            </span>
+
+            <h2 id="detailEntityName">
+              Entity
+            </h2>
+
+            <div class="detail-id" id="detailEntityId">
+              --
+            </div>
+
+          </div>
+
+          <button
+            type="button"
+            class="close-detail"
+            id="closeEntityDetail"
+            aria-label="Close entity details"
+          >
+            ×
+          </button>
+
+        </div>
+
+
+        <div class="detail-grid">
+
+          <div class="detail-item">
+
+            <span>Type</span>
+
+            <strong id="detailEntityType">
+              --
+            </strong>
+
+          </div>
+
+
+          <div class="detail-item">
+
+            <span>Risk Level</span>
+
+            <strong id="detailEntityRisk">
+              --
+            </strong>
+
+          </div>
+
+
+          <div class="detail-item">
+
+            <span>Cases</span>
+
+            <strong id="detailEntityCases">
+              0
+            </strong>
+
+          </div>
+
+
+          <div class="detail-item">
+
+            <span>Relationships</span>
+
+            <strong id="detailEntityRelationships">
+              0
+            </strong>
+
+          </div>
+
+
+          <div class="detail-item">
+
+            <span>Last Updated</span>
+
+            <strong id="detailEntityUpdated">
+              --
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="detail-section">
+
+          <h3>Summary</h3>
+
+          <p id="detailEntitySummary">
+            No information available.
+          </p>
+
+        </div>
+
+
+        <div class="detail-section">
+
+          <h3>Known Attributes</h3>
+
+          <div
+            class="attribute-list"
+            id="detailEntityAttributes"
+          >
+            <!-- Generated by JS -->
+          </div>
+
+        </div>
+
+
+        <div class="detail-actions">
+
+          <a
+            href="#"
+            class="btn btn-primary"
+            id="openEntityNetwork"
+          >
+            View Network
+          </a>
+
+          <a
+            href="#"
+            class="btn btn-secondary"
+            id="openEntityIntelligence"
+          >
+            Intelligence
+          </a>
+
+          <button
+            type="button"
+            class="btn btn-secondary"
+            id="editEntityBtn"
+          >
+            Edit Entity
+          </button>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+  <!-- =======================================================
+       NEW ENTITY MODAL
+       ======================================================= -->
+
+  <div
+    class="modal-overlay"
+    id="entityModal"
+    style="display: none;"
+  >
+
+    <div class="modal">
+
+      <div class="modal-header">
+
+        <div>
+          <span class="eyebrow">
+            ENTITY REGISTRY
+          </span>
+
+          <h2>Create New Entity</h2>
+        </div>
+
+        <button
+          type="button"
+          class="modal-close"
+          id="closeEntityModal"
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <form id="newEntityForm">
+
+        <div class="form-grid">
+
+          <div class="form-group">
+
+            <label for="newEntityId">
+              Entity ID
+            </label>
+
+            <input
+              type="text"
+              id="newEntityId"
+              readonly
+            />
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="newEntityType">
+              Entity Type
+            </label>
+
+            <select id="newEntityType" required>
+
+              <option value="person">
+                Person
+              </option>
+
+              <option value="organization">
+                Organization
+              </option>
+
+              <option value="location">
+                Location
+              </option>
+
+              <option value="vehicle">
+                Vehicle
+              </option>
+
+              <option value="account">
+                Account
+              </option>
+
+              <option value="other">
+                Other
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group full-width">
+
+            <label for="newEntityName">
+              Entity Name
+            </label>
+
+            <input
+              type="text"
+              id="newEntityName"
+              placeholder="Enter entity name"
+              required
+            />
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="newEntityRisk">
+              Risk Level
+            </label>
+
+            <select id="newEntityRisk">
+
+              <option value="low">
+                Low
+              </option>
+
+              <option value="medium" selected>
+                Medium
+              </option>
+
+              <option value="high">
+                High
+              </option>
+
+              <option value="critical">
+                Critical
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="newEntityCases">
+              Case Count
+            </label>
+
+            <input
+              type="number"
+              id="newEntityCases"
+              min="0"
+              value="0"
+            />
+
+          </div>
+
+
+          <div class="form-group full-width">
+
+            <label for="newEntitySummary">
+              Summary
+            </label>
+
+            <textarea
+              id="newEntitySummary"
+              rows="4"
+              placeholder="Enter intelligence summary..."
+            ></textarea>
+
+          </div>
+
+        </div>
+
+
+        <div class="modal-actions">
+
+          <button
+            type="button"
+            class="btn btn-secondary"
+            id="cancelNewEntity"
+          >
+            Cancel
+          </button>
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+          >
+            Create Entity
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+       ======================================================= -->
+
+  <script src="entities.js"></script>
+
+</body>
+</html>

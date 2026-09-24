@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Intelligence Hub | CRIMENET</title>
+
+  <link rel="stylesheet" href="intelligence.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+</head>
+
+<body>
+  <div class="intelligence-app">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
+
+      <div class="brand">
+        <div class="brand-mark">C</div>
+
+        <div class="brand-text">
+          <strong>CRIMENET</strong>
+          <span>INTELLIGENCE ANALYSIS</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+
+        <a href="dashboard.html" class="nav-item">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>Dashboard</span>
+        </a>
+
+        <a href="cases.html" class="nav-item">
+          <i class="fa-solid fa-folder-open"></i>
+          <span>Cases</span>
+        </a>
+
+        <a href="intelligence.html" class="nav-item active">
+          <i class="fa-solid fa-brain"></i>
+          <span>Intelligence Hub</span>
+        </a>
+
+        <a href="network.html" class="nav-item">
+          <i class="fa-solid fa-diagram-project"></i>
+          <span>Network Analysis</span>
+        </a>
+
+        <a href="entities.html" class="nav-item">
+          <i class="fa-solid fa-users"></i>
+          <span>Entities</span>
+        </a>
+
+        <a href="reports.html" class="nav-item">
+          <i class="fa-solid fa-file-lines"></i>
+          <span>Reports</span>
+        </a>
+
+      </nav>
+
+      <div class="sidebar-bottom">
+
+       
+
+        <a href="settings.html" class="nav-item">
+          <i class="fa-solid fa-gear"></i>
+          <span>Settings</span>
+        </a>
+
+        <button class="nav-item logout-item" id="logoutBtn" type="button">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <span>Logout</span>
+        </button>
+
+      </div>
+
+    </aside>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="main-content">
+
+      <!-- TOP HEADER -->
+      <header class="top-header">
+
+        <div class="breadcrumb">
+          <span>CRIMENET</span>
+          <i class="fa-solid fa-chevron-right"></i>
+          <strong>Intelligence Hub</strong>
+        </div>
+
+        <div class="top-header-right">
+
+          <div class="system-status">
+            <span class="status-dot"></span>
+            <span>System Online</span>
+          </div>
+
+          <div class="header-date">
+            <i class="fa-regular fa-calendar"></i>
+            <span id="currentDate">--</span>
+          </div>
+
+          <div class="header-time">
+            <i class="fa-regular fa-clock"></i>
+            <span id="currentTime">--:--:--</span>
+          </div>
+
+          <button
+            class="icon-btn"
+            id="themeToggle"
+            type="button"
+            title="Toggle theme"
+          >
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <a href="admin-profile.html" class="profile" id="profileLink">
+
+            <div class="profile-avatar" id="profileAvatar">
+              <i class="fa-solid fa-user"></i>
+            </div>
+
+            <div class="profile-info">
+              <strong id="profileName">System Analyst</strong>
+              <small id="profileRole">Senior Investigator</small>
+            </div>
+
+          </a>
+
+        </div>
+
+      </header>
+
+      <!-- PAGE HEADER -->
+      <section class="page-header">
+
+        <div>
+          <div class="eyebrow">
+            <i class="fa-solid fa-microchip"></i>
+            INTELLIGENCE OPERATIONS
+          </div>
+
+          <h1>Intelligence Hub</h1>
+
+          <p>
+            Review intelligence signals, suspicious activity, case insights
+            and analytical findings.
+          </p>
+        </div>
+
+        <div class="page-actions">
+
+          <button class="btn secondary-btn" id="refreshIntelligence" type="button">
+            <i class="fa-solid fa-rotate"></i>
+            Refresh
+          </button>
+
+          <button class="btn primary-btn" id="newIntelligenceBtn" type="button">
+            <i class="fa-solid fa-plus"></i>
+            New Intelligence
+          </button>
+
+        </div>
+
+      </section>
+
+      <!-- ================= METRICS ================= -->
+      <section class="metrics-grid">
+
+        <div class="metric-card">
+
+          <div class="metric-icon">
+            <i class="fa-solid fa-satellite-dish"></i>
+          </div>
+
+          <div class="metric-content">
+            <span>Total Intelligence</span>
+            <strong id="totalIntelligence">0</strong>
+            <small>All intelligence records</small>
+          </div>
+
+        </div>
+
+        <div class="metric-card">
+
+          <div class="metric-icon">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+          </div>
+
+          <div class="metric-content">
+            <span>High Priority</span>
+            <strong id="highPriorityIntelligence">0</strong>
+            <small>Requires attention</small>
+          </div>
+
+        </div>
+
+        <div class="metric-card">
+
+          <div class="metric-icon">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+          </div>
+
+          <div class="metric-content">
+            <span>Active Analysis</span>
+            <strong id="activeAnalysis">0</strong>
+            <small>Currently under review</small>
+          </div>
+
+        </div>
+
+        <div class="metric-card">
+
+          <div class="metric-icon">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+
+          <div class="metric-content">
+            <span>Verified</span>
+            <strong id="verifiedIntelligence">0</strong>
+            <small>Verified intelligence</small>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ================= FILTERS ================= -->
+      <section class="filter-card">
+
+        <div class="filter-header">
+
+          <div>
+            <span class="section-label">INTELLIGENCE FILTERS</span>
+            <h2>Search & Analysis</h2>
+          </div>
+
+          <button class="text-btn" id="clearIntelligenceFilters" type="button">
+            <i class="fa-solid fa-xmark"></i>
+            Clear Filters
+          </button>
+
+        </div>
+
+        <div class="filter-grid">
+
+          <div class="field">
+
+            <label for="intelligenceSearch">
+              Search
+            </label>
+
+            <div class="input-icon">
+              <i class="fa-solid fa-magnifying-glass"></i>
+
+              <input
+                type="search"
+                id="intelligenceSearch"
+                placeholder="Search intelligence..."
+              />
+            </div>
+
+          </div>
+
+          <div class="field">
+
+            <label for="intelligenceTypeFilter">
+              Intelligence Type
+            </label>
+
+            <select id="intelligenceTypeFilter">
+              <option value="all">All Types</option>
+              <option value="tip">Tip / Lead</option>
+              <option value="surveillance">Surveillance</option>
+              <option value="financial">Financial</option>
+              <option value="communication">Communication</option>
+              <option value="digital">Digital</option>
+              <option value="field">Field Intelligence</option>
+            </select>
+
+          </div>
+
+          <div class="field">
+
+            <label for="intelligencePriorityFilter">
+              Priority
+            </label>
+
+            <select id="intelligencePriorityFilter">
+              <option value="all">All Priorities</option>
+              <option value="high">High</option>
+              <option value="medium">Medium</option>
+              <option value="low">Low</option>
+            </select>
+
+          </div>
+
+          <div class="field">
+
+            <label for="intelligenceStatusFilter">
+              Status
+            </label>
+
+            <select id="intelligenceStatusFilter">
+              <option value="all">All Status</option>
+              <option value="active">Active</option>
+              <option value="review">Under Review</option>
+              <option value="verified">Verified</option>
+              <option value="archived">Archived</option>
+            </select>
+
+          </div>
+
+          <div class="field">
+
+            <label for="sortIntelligence">
+              Sort By
+            </label>
+
+            <select id="sortIntelligence">
+              <option value="updated-desc">Recently Updated</option>
+              <option value="priority-desc">Priority</option>
+              <option value="title-asc">Title A-Z</option>
+              <option value="title-desc">Title Z-A</option>
+            </select>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ================= INTELLIGENCE TABLE ================= -->
+      <section class="data-card">
+
+        <div class="data-card-header">
+
+          <div>
+            <span class="section-label">INTELLIGENCE RECORDS</span>
+
+            <h2>
+              Intelligence Feed
+              <span class="result-count" id="resultCount">0 records</span>
+            </h2>
+          </div>
+
+          <div class="feed-status">
+            <span class="status-dot"></span>
+            Live Feed
+          </div>
+
+        </div>
+
+        <div class="table-wrapper">
+
+          <table class="data-table">
+
+            <thead>
+              <tr>
+                <th>INTELLIGENCE</th>
+                <th>TYPE</th>
+                <th>PRIORITY</th>
+                <th>STATUS</th>
+                <th>CASE</th>
+                <th>UPDATED</th>
+                <th>ACTION</th>
+              </tr>
+            </thead>
+
+            <tbody id="intelligenceTableBody">
+              <!-- JS populated -->
+            </tbody>
+
+          </table>
+
+        </div>
+
+        <div class="empty-state" id="emptyState" hidden>
+
+          <div class="empty-icon">
+            <i class="fa-solid fa-inbox"></i>
+          </div>
+
+          <h3>No intelligence records found</h3>
+
+          <p>
+            Try changing your filters or create a new intelligence record.
+          </p>
+
+          <button class="btn secondary-btn" id="clearEmptyFilters" type="button">
+            Clear Filters
+          </button>
+
+        </div>
+
+      </section>
+
+      <!-- ================= INTELLIGENCE DETAIL ================= -->
+      <section class="detail-card" id="intelligenceDetailCard" hidden>
+
+        <div class="detail-header">
+
+          <div>
+
+            <span class="section-label">INTELLIGENCE DETAIL</span>
+
+            <h2 id="detailIntelligenceTitle">
+              Intelligence Record
+            </h2>
+
+            <span class="detail-id" id="detailIntelligenceId">
+              INT-000
+            </span>
+
+          </div>
+
+          <button
+            class="icon-btn"
+            id="closeIntelligenceDetail"
+            type="button"
+            title="Close"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+
+        </div>
+
+        <div class="detail-status-row">
+
+          <span class="status-badge" id="detailIntelligenceStatus">
+            Active
+          </span>
+
+          <span class="priority-badge" id="detailIntelligencePriority">
+            Medium
+          </span>
+
+          <span class="detail-updated">
+            Updated:
+            <strong id="detailIntelligenceUpdated">--</strong>
+          </span>
+
+        </div>
+
+        <div class="detail-grid">
+
+          <div class="detail-section">
+
+            <span class="detail-label">Summary</span>
+
+            <p id="detailIntelligenceSummary">
+              No intelligence summary available.
+            </p>
+
+          </div>
+
+          <div class="detail-section">
+
+            <span class="detail-label">Source</span>
+
+            <p id="detailIntelligenceSource">
+              Unknown
+            </p>
+
+          </div>
+
+          <div class="detail-section">
+
+            <span class="detail-label">Related Case</span>
+
+            <p id="detailIntelligenceCase">
+              —
+            </p>
+
+          </div>
+
+          <div class="detail-section">
+
+            <span class="detail-label">Related Entities</span>
+
+            <div class="tag-list" id="detailIntelligenceEntities">
+              <span class="muted-text">No entities linked</span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="detail-actions">
+
+          <button class="btn secondary-btn" id="openRelatedCase" type="button">
+            <i class="fa-solid fa-folder-open"></i>
+            Open Case
+          </button>
+
+          <button class="btn secondary-btn" id="openRelatedNetwork" type="button">
+            <i class="fa-solid fa-diagram-project"></i>
+            Network Analysis
+          </button>
+
+          <button class="btn primary-btn" id="editIntelligenceBtn" type="button">
+            <i class="fa-solid fa-pen"></i>
+            Edit Intelligence
+          </button>
+
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ================= NEW INTELLIGENCE MODAL ================= -->
+  <div class="modal-overlay" id="intelligenceModal" hidden>
+
+    <div class="modal">
+
+      <div class="modal-header">
+
+        <div>
+          <span class="section-label">INTELLIGENCE OPERATIONS</span>
+          <h2>Create Intelligence Record</h2>
+        </div>
+
+        <button
+          class="icon-btn"
+          id="closeIntelligenceModal"
+          type="button"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+      </div>
+
+      <form id="newIntelligenceForm">
+
+        <div class="form-grid">
+
+          <div class="field">
+
+            <label for="newIntelligenceId">
+              Intelligence ID
+            </label>
+
+            <input
+              type="text"
+              id="newIntelligenceId"
+              placeholder="INT-006"
+              required
+            />
+
+          </div>
+
+          <div class="field">
+
+            <label for="newIntelligenceType">
+              Type
+            </label>
+
+            <select id="newIntelligenceType" required>
+              <option value="tip">Tip / Lead</option>
+              <option value="surveillance">Surveillance</option>
+              <option value="financial">Financial</option>
+              <option value="communication">Communication</option>
+              <option value="digital">Digital</option>
+              <option value="field">Field Intelligence</option>
+            </select>
+
+          </div>
+
+          <div class="field full-width">
+
+            <label for="newIntelligenceTitle">
+              Intelligence Title
+            </label>
+
+            <input
+              type="text"
+              id="newIntelligenceTitle"
+              placeholder="Enter intelligence title"
+              required
+            />
+
+          </div>
+
+          <div class="field">
+
+            <label for="newIntelligencePriority">
+              Priority
+            </label>
+
+            <select id="newIntelligencePriority" required>
+              <option value="high">High</option>
+              <option value="medium" selected>Medium</option>
+              <option value="low">Low</option>
+            </select>
+
+          </div>
+
+          <div class="field">
+
+            <label for="newIntelligenceStatus">
+              Status
+            </label>
+
+            <select id="newIntelligenceStatus" required>
+              <option value="active">Active</option>
+              <option value="review">Under Review</option>
+              <option value="verified">Verified</option>
+              <option value="archived">Archived</option>
+            </select>
+
+          </div>
+
+          <div class="field">
+
+            <label for="newIntelligenceCase">
+              Related Case
+            </label>
+
+            <input
+              type="text"
+              id="newIntelligenceCase"
+              placeholder="CR-001"
+            />
+
+          </div>
+
+          <div class="field">
+
+            <label for="newIntelligenceSource">
+              Source
+            </label>
+
+            <input
+              type="text"
+              id="newIntelligenceSource"
+              placeholder="Source / origin"
+            />
+
+          </div>
+
+          <div class="field full-width">
+
+            <label for="newIntelligenceSummary">
+              Intelligence Summary
+            </label>
+
+            <textarea
+              id="newIntelligenceSummary"
+              rows="5"
+              placeholder="Enter intelligence details..."
+              required
+            ></textarea>
+
+          </div>
+
+        </div>
+
+        <div class="modal-actions">
+
+          <button
+            class="btn secondary-btn"
+            type="button"
+            id="cancelNewIntelligence"
+          >
+            Cancel
+          </button>
+
+          <button
+            class="btn primary-btn"
+            type="submit"
+          >
+            <i class="fa-solid fa-plus"></i>
+            Create Record
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <!-- ================= TOAST ================= -->
+  <div class="toast" id="intelligenceToast" hidden>
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toastMessage">Operation completed.</span>
+  </div>
+
+  <script src="intelligence.js"></script>
+
+</body>
+</html>

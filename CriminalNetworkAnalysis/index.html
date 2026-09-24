@@ -1,0 +1,3125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CrimeNet Intelligence Platform</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app-shell">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="brand">
+            <div class="brand-mark">
+                <div class="brand-shield">
+                    <span>✦</span>
+                </div>
+            </div>
+
+            <div class="brand-text">
+                <strong>CRIMENET</strong>
+                <small>INTELLIGENCE • ANALYSIS • JUSTICE</small>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <p class="nav-label">MAIN MENU</p>
+
+            <a href="#dashboard" class="nav-item active" data-page="dashboard">
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="#cases" class="nav-item" data-page="cases">
+                <span class="nav-icon">▣</span>
+                <span>Cases</span>
+            </a>
+
+            <a href="#intelligence" class="nav-item" data-page="intelligence">
+                <span class="nav-icon">◈</span>
+                <span>Intelligence Hub</span>
+            </a>
+
+            <a href="#network" class="nav-item" data-page="network">
+                <span class="nav-icon">⌘</span>
+                <span>Network Analysis</span>
+            </a>
+
+            <a href="#entities" class="nav-item" data-page="entities">
+                <span class="nav-icon">♧</span>
+                <span>Entities</span>
+            </a>
+
+            <a href="#reports" class="nav-item" data-page="reports">
+                <span class="nav-icon">▤</span>
+                <span>Reports</span>
+            </a>
+
+            <p class="nav-label nav-label-space">SYSTEM</p>
+
+            <a href="#settings" class="nav-item" data-page="settings">
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="#profile" class="profile-mini" data-page="profile">
+                <div class="avatar avatar-small">AD</div>
+
+                <div class="profile-mini-text">
+                    <strong id="sidebarUserName">Administrator</strong>
+                    <span id="sidebarUserRole">Senior Investigator</span>
+                </div>
+
+                <span class="online-dot"></span>
+            </a>
+
+            <button class="logout-link" id="logoutBtn">
+                <span>↪</span>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- Main Area -->
+    <main class="main-content">
+
+        <!-- Topbar -->
+        <header class="topbar">
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                ☰
+            </button>
+
+            <div class="topbar-left">
+                <span class="breadcrumb-main" id="breadcrumbMain">Dashboard</span>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-current" id="breadcrumbCurrent">
+                    Overview
+                </span>
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="global-search">
+                    <span>⌕</span>
+                    <input
+                        type="text"
+                        id="globalSearch"
+                        placeholder="Search cases, entities, or keywords..."
+                    >
+                    <kbd>⌘ K</kbd>
+                </div>
+
+                <button class="topbar-icon-btn" title="Notifications">
+                    ♢
+                    <span class="notification-dot"></span>
+                </button>
+
+                <div class="date-display">
+                    <strong id="currentDate">Apr 29, 2025</strong>
+                    <span id="currentTime">10:24 AM</span>
+                </div>
+
+                <button class="topbar-icon-btn" id="themeToggle" title="Toggle theme">
+                    ☾
+                </button>
+
+            </div>
+
+        </header>
+
+        <!-- Page Content -->
+        <section class="page-container">
+
+            <!-- DASHBOARD PAGE -->
+            <section class="page active-page" id="page-dashboard">
+
+                <div class="page-heading dashboard-heading">
+                    <div>
+                        <p class="eyebrow">INTELLIGENCE OVERVIEW</p>
+                        <h1>Good morning, <span>Administrator</span></h1>
+                        <p class="page-description">
+                            Here’s what’s happening with your cases today.
+                        </p>
+                    </div>
+
+                    <div class="heading-actions">
+                        <button class="btn btn-secondary" data-page-link="reports">
+                            View Reports
+                        </button>
+
+                        <button class="btn btn-primary" data-page-link="cases">
+                            <span>＋</span>
+                            New Case
+                        </button>
+                    </div>
+                </div>
+
+                <div class="dashboard-connection">
+                    <span class="connection-line"></span>
+                    <span class="connection-icon">⌁</span>
+                    <div>
+                        <strong>CONNECTING THE DOTS</strong>
+                        <small>BEFORE CRIME CONNECTS THEM</small>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+
+                    <div class="stat-card stat-blue">
+                        <div class="stat-card-top">
+                            <div class="stat-icon">▣</div>
+                            <span class="stat-label">Total Cases</span>
+                        </div>
+
+                        <strong class="stat-value" id="dashboardCases">12</strong>
+
+                        <div class="stat-change positive">
+                            ↑ 2 new today
+                        </div>
+                    </div>
+
+                    <div class="stat-card stat-purple">
+                        <div class="stat-card-top">
+                            <div class="stat-icon">◎</div>
+                            <span class="stat-label">Active Investigations</span>
+                        </div>
+
+                        <strong class="stat-value" id="dashboardInvestigations">5</strong>
+
+                        <div class="stat-change positive">
+                            ↑ 1 in progress
+                        </div>
+                    </div>
+
+                    <div class="stat-card stat-teal">
+                        <div class="stat-card-top">
+                            <div class="stat-icon">♧</div>
+                            <span class="stat-label">Entities Found</span>
+                        </div>
+
+                        <strong class="stat-value" id="dashboardEntities">248</strong>
+
+                        <div class="stat-change positive">
+                            ↑ 12 new
+                        </div>
+                    </div>
+
+                    <div class="stat-card stat-orange">
+                        <div class="stat-card-top">
+                            <div class="stat-icon">△</div>
+                            <span class="stat-label">Flagged Connections</span>
+                        </div>
+
+                        <strong class="stat-value" id="dashboardFlags">17</strong>
+
+                        <div class="stat-change negative">
+                            ↑ 3 new alerts
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="dashboard-grid">
+
+                    <div class="panel recent-cases-panel">
+
+                        <div class="panel-header">
+                            <div>
+                                <p class="eyebrow">INVESTIGATION QUEUE</p>
+                                <h2>Recent Cases</h2>
+                            </div>
+
+                            <button class="text-link" data-page-link="cases">
+                                View all →
+                            </button>
+                        </div>
+
+                        <div class="table-wrapper">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Case ID</th>
+                                        <th>Title</th>
+                                        <th>Status</th>
+                                        <th>Last Updated</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="recentCasesTable">
+                                    <tr>
+                                        <td><span class="case-id"><i class="dot dot-cyan"></i>CN-2025-001</span></td>
+                                        <td>Financial Fraud Network</td>
+                                        <td><span class="status-badge status-progress">In Progress</span></td>
+                                        <td>Apr 29, 2025</td>
+                                        <td>›</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><span class="case-id"><i class="dot dot-purple"></i>CN-2025-002</span></td>
+                                        <td>Organized Crime Syndicate</td>
+                                        <td><span class="status-badge status-analysis">Analysis</span></td>
+                                        <td>Apr 28, 2025</td>
+                                        <td>›</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><span class="case-id"><i class="dot dot-blue"></i>CN-2025-003</span></td>
+                                        <td>Cyber Extortion Ring</td>
+                                        <td><span class="status-badge status-progress">In Progress</span></td>
+                                        <td>Apr 27, 2025</td>
+                                        <td>›</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><span class="case-id"><i class="dot dot-orange"></i>CN-2025-004</span></td>
+                                        <td>Money Laundering</td>
+                                        <td><span class="status-badge status-review">Review</span></td>
+                                        <td>Apr 26, 2025</td>
+                                        <td>›</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><span class="case-id"><i class="dot dot-red"></i>CN-2025-005</span></td>
+                                        <td>Identity Theft Network</td>
+                                        <td><span class="status-badge status-new">New</span></td>
+                                        <td>Apr 25, 2025</td>
+                                        <td>›</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div class="panel network-overview-panel">
+
+                        <div class="panel-header">
+                            <div>
+                                <p class="eyebrow">RELATIONSHIP MAPPING</p>
+                                <h2>Network Overview</h2>
+                            </div>
+
+                            <button class="text-link" data-page-link="network">
+                                View details →
+                            </button>
+                        </div>
+
+                        <div class="mini-network">
+                            <div class="network-node node-a">A</div>
+                            <div class="network-node node-b">B</div>
+                            <div class="network-node node-c">C</div>
+                            <div class="network-node node-d">D</div>
+                            <div class="network-node node-e">E</div>
+                            <div class="network-node node-f">F</div>
+
+                            <span class="network-line line-one"></span>
+                            <span class="network-line line-two"></span>
+                            <span class="network-line line-three"></span>
+                            <span class="network-line line-four"></span>
+                            <span class="network-line line-five"></span>
+                            <span class="network-line line-six"></span>
+                        </div>
+
+                        <div class="network-legend">
+                            <div><i class="legend-dot person"></i> Person <strong>12</strong></div>
+                            <div><i class="legend-dot phone"></i> Phone <strong>8</strong></div>
+                            <div><i class="legend-dot location"></i> Location <strong>6</strong></div>
+                            <div><i class="legend-dot organization"></i> Organization <strong>4</strong></div>
+                        </div>
+
+                        <div class="network-footer-stats">
+                            <div>
+                                <span>Total Nodes</span>
+                                <strong>30</strong>
+                            </div>
+
+                            <div>
+                                <span>Total Links</span>
+                                <strong>42</strong>
+                            </div>
+
+                            <div>
+                                <span>Density</span>
+                                <strong>28%</strong>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="bottom-dashboard-grid">
+
+                    <div class="panel activity-panel">
+                        <div class="panel-header">
+                            <div>
+                                <p class="eyebrow">CASE MOVEMENT</p>
+                                <h2>Relationship Activity</h2>
+                            </div>
+
+                            <select id="activityRange">
+                                <option value="7">Last 7 days</option>
+                                <option value="14">Last 14 days</option>
+                                <option value="30">Last 30 days</option>
+                            </select>
+                        </div>
+
+                        <div class="activity-chart">
+                            <div class="chart-bars">
+                                <span style="height: 35%"></span>
+                                <span style="height: 50%"></span>
+                                <span style="height: 42%"></span>
+                                <span style="height: 65%"></span>
+                                <span style="height: 58%"></span>
+                                <span style="height: 78%"></span>
+                                <span style="height: 90%"></span>
+                            </div>
+
+                            <div class="chart-labels">
+                                <span>Mon</span>
+                                <span>Tue</span>
+                                <span>Wed</span>
+                                <span>Thu</span>
+                                <span>Fri</span>
+                                <span>Sat</span>
+                                <span>Sun</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel system-status-panel">
+                        <div class="panel-header">
+                            <div>
+                                <p class="eyebrow">PLATFORM STATUS</p>
+                                <h2>System Status</h2>
+                            </div>
+
+                            <span class="status-online">
+                                <i></i> Operational
+                            </span>
+                        </div>
+
+                        <div class="system-status-list">
+                            <div>
+                                <span>Data Processing</span>
+                                <strong>Operational</strong>
+                            </div>
+
+                            <div>
+                                <span>Network Engine</span>
+                                <strong>Operational</strong>
+                            </div>
+
+                            <div>
+                                <span>Report Generator</span>
+                                <strong>Operational</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- CASES PAGE -->
+            <section class="page" id="page-cases">
+
+                <div class="page-heading">
+                    <div>
+                        <p class="eyebrow">INVESTIGATION MANAGEMENT</p>
+                        <h1>Cases</h1>
+                        <p class="page-description">
+                            Manage and track your investigations.
+                        </p>
+                    </div>
+
+                    <button class="btn btn-primary" id="newCaseBtn">
+                        ＋ New Case
+                    </button>
+                </div>
+
+                <div class="filter-bar">
+                    <div class="search-field">
+                        <span>⌕</span>
+                        <input type="text" id="caseSearch" placeholder="Search cases...">
+                    </div>
+
+                    <select id="caseStatusFilter">
+                        <option value="all">All Statuses</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Analysis">Analysis</option>
+                        <option value="Review">Review</option>
+                        <option value="New">New</option>
+                    </select>
+
+                    <select>
+                        <option>All Priorities</option>
+                        <option>High</option>
+                        <option>Medium</option>
+                        <option>Low</option>
+                    </select>
+                </div>
+
+                <div class="panel">
+                    <div class="table-wrapper">
+                        <table class="data-table full-table">
+                            <thead>
+                                <tr>
+                                    <th>Case ID</th>
+                                    <th>Title</th>
+                                    <th>Status</th>
+                                    <th>Priority</th>
+                                    <th>Entities</th>
+                                    <th>Last Updated</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="casesTable">
+                                <tr>
+                                    <td>CN-2025-001</td>
+                                    <td>Financial Fraud Network</td>
+                                    <td><span class="status-badge status-progress">In Progress</span></td>
+                                    <td><span class="priority-high">High</span></td>
+                                    <td>24</td>
+                                    <td>Apr 29, 2025</td>
+                                    <td><button class="table-action">Open</button></td>
+                                </tr>
+
+                                <tr>
+                                    <td>CN-2025-002</td>
+                                    <td>Organized Crime Syndicate</td>
+                                    <td><span class="status-badge status-analysis">Analysis</span></td>
+                                    <td><span class="priority-medium">Medium</span></td>
+                                    <td>18</td>
+                                    <td>Apr 28, 2025</td>
+                                    <td><button class="table-action">Open</button></td>
+                                </tr>
+
+                                <tr>
+                                    <td>CN-2025-003</td>
+                                    <td>Cyber Extortion Ring</td>
+                                    <td><span class="status-badge status-progress">In Progress</span></td>
+                                    <td><span class="priority-high">High</span></td>
+                                    <td>31</td>
+                                    <td>Apr 27, 2025</td>
+                                    <td><button class="table-action">Open</button></td>
+                                </tr>
+
+                                <tr>
+                                    <td>CN-2025-004</td>
+                                    <td>Money Laundering</td>
+                                    <td><span class="status-badge status-review">Review</span></td>
+                                    <td><span class="priority-medium">Medium</span></td>
+                                    <td>15</td>
+                                    <td>Apr 26, 2025</td>
+                                    <td><button class="table-action">Open</button></td>
+                                </tr>
+
+                                <tr>
+                                    <td>CN-2025-005</td>
+                                    <td>Identity Theft Network</td>
+                                    <td><span class="status-badge status-new">New</span></td>
+                                    <td><span class="priority-low">Low</span></td>
+                                    <td>9</td>
+                                    <td>Apr 25, 2025</td>
+                                    <td><button class="table-action">Open</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- INTELLIGENCE HUB PAGE -->
+            <section class="page" id="page-intelligence">
+
+                <div class="page-heading">
+                    <div>
+                        <p class="eyebrow">SOURCE PROCESSING & ANALYSIS</p>
+                        <h1>Intelligence Hub</h1>
+                        <p class="page-description">
+                            Upload, process, and analyze intelligence sources.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="intelligence-grid">
+
+                    <div class="panel upload-panel">
+                        <div class="panel-header">
+                            <div>
+                                <p class="eyebrow">SOURCE INGESTION</p>
+                                <h2>Upload Intelligence</h2>
+                            </div>
+                        </div>
+
+                        <label class="upload-zone" for="sourceUpload">
+                            <span class="upload-icon">⇧</span>
+                            <strong>Drop files here or click to upload</strong>
+                            <small>Supported: PDF, DOC, DOCX, TXT, CSV, XLSX, Images</small>
+                            <input type="file" id="sourceUpload" hidden multiple>
+                        </label>
+
+                        <div class="uploaded-files" id="uploadedFiles">
+                            <p>No files uploaded yet.</p>
+                        </div>
+                    </div>
+
+                    <div class="panel processing-panel">
+                        <div class="panel-header">
+                            <div>
+                                <p class="eyebrow">ANALYSIS PIPELINE</p>
+                                <h2>Processing</h2>
+                            </div>
+                        </div>
+
+                        <div class="processing-steps">
+                            <div class="processing-step complete">
+                                <span>✓</span>
+                                <div>
+                                    <strong>Extract Text</strong>
+                                    <small>Completed</small>
+                                </div>
+                            </div>
+
+                            <div class="processing-step active">
+                                <span>2</span>
+                                <div>
+                                    <strong>Entity Recognition</strong>
+                                    <small>Processing</small>
+                                </div>
+                            </div>
+
+                            <div class="processing-step">
+                                <span>3</span>
+                                <div>
+                                    <strong>Relationship Mapping</strong>
+                                    <small>Waiting</small>
+                                </div>
+                            </div>
+
+                            <div class="processing-step">
+                                <span>4</span>
+                                <div>
+                                    <strong>Intelligence Analysis</strong>
+                                    <small>Waiting</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="panel processing-results">
+                    <div class="panel-header">
+                        <div>
+                            <p class="eyebrow">EXTRACTION SUMMARY</p>
+                            <h2>Processing Results</h2>
+                        </div>
+
+                        <span class="status-online">
+                            <i></i> Processing complete
+                        </span>
+                    </div>
+
+                    <div class="result-cards">
+                        <div class="result-card">
+                            <span>Entities Found</span>
+                            <strong>23</strong>
+                        </div>
+
+                        <div class="result-card">
+                            <span>Relationships</span>
+                            <strong>16</strong>
+                        </div>
+
+                        <div class="result-card danger-result">
+                            <span>Flags Detected</span>
+                            <strong>5</strong>
+                        </div>
+
+                        <div class="result-card success-result">
+                            <span>Confidence Score</span>
+                            <strong>92%</strong>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- NETWORK PAGE -->
+            <section class="page" id="page-network">
+
+                <div class="page-heading">
+                    <div>
+                        <p class="eyebrow">RELATIONSHIP VISUALIZATION</p>
+                        <h1>Network Analysis</h1>
+                        <p class="page-description">
+                            Explore connections between people, organizations, locations, and devices.
+                        </p>
+                    </div>
+
+                    <div class="heading-actions">
+                        <button class="btn btn-secondary">Export Graph</button>
+                        <button class="btn btn-primary">＋ Add Entity</button>
+                    </div>
+                </div>
+
+                <div class="network-analysis-layout">
+
+                    <div class="panel graph-panel">
+                        <div class="panel-header">
+                            <div>
+                                <p class="eyebrow">ACTIVE NETWORK</p>
+                                <h2>Relationship Graph</h2>
+                            </div>
+
+                            <div class="graph-controls">
+                                <button>＋</button>
+                                <button>−</button>
+                                <button>⛶</button>
+                            </div>
+                        </div>
+
+                        <div class="large-network">
+                            <div class="large-node large-node-1">A</div>
+                            <div class="large-node large-node-2">B</div>
+                            <div class="large-node large-node-3">C</div>
+                            <div class="large-node large-node-4">D</div>
+                            <div class="large-node large-node-5">E</div>
+                            <div class="large-node large-node-6">F</div>
+                            <div class="large-node large-node-7">G</div>
+
+                            <span class="large-line l1"></span>
+                            <span class="large-line l2"></span>
+                            <span class="large-line l3"></span>
+                            <span class="large-line l4"></span>
+                            <span class="large-line l5"></span>
+                            <span class="large-line l6"></span>
+                            <span class="large-line l7"></span>
+                        </div>
+
+                        <div class="graph-legend">
+                            <span><i class="legend-dot person"></i> Person</span>
+                            <span><i class="legend-dot phone"></i> Phone</span>
+                            <span><i class="legend-dot location"></i> Location</span>
+                            <span><i class="legend-dot organization"></i> Organization</span>
+                        </div>
+                    </div>
+
+                    <div class="network-side-panels">
+
+                        <div class="panel">
+                            <div class="panel-header">
+                                <div>
+                                    <p class="eyebrow">NETWORK SUMMARY</p>
+                                    <h2>Overview</h2>
+                                </div>
+                            </div>
+
+                            <div class="summary-list">
+                                <div>
+                                    <span>Entities</span>
+                                    <strong>23</strong>
+                                </div>
+
+                                <div>
+                                    <span>Relationships</span>
+                                    <strong>14</strong>
+                                </div>
+
+                                <div>
+                                    <span>Groups</span>
+                                    <strong>3</strong>
+                                </div>
+
+                                <div>
+                                    <span>Risk Level</span>
+                                    <strong class="risk-high">High</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel selected-entity">
+                            <div class="panel-header">
+                                <div>
+                                    <p class="eyebrow">SELECTED ENTITY</p>
+                                    <h2>Person A</h2>
+                                </div>
+                            </div>
+
+                            <div class="selected-person">
+                                <div class="avatar">PA</div>
+
+                                <div>
+                                    <strong>Person A</strong>
+                                    <span>Primary subject</span>
+                                </div>
+
+                                <span class="status-badge status-progress">Active</span>
+                            </div>
+
+                            <div class="summary-list">
+                                <div>
+                                    <span>Type</span>
+                                    <strong>Person</strong>
+                                </div>
+
+                                <div>
+                                    <span>Status</span>
+                                    <strong>Under Review</strong>
+                                </div>
+
+                                <div>
+                                    <span>Connections</span>
+                                    <strong>4</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ENTITIES PAGE -->
+            <section class="page" id="page-entities">
+
+                <div class="page-heading">
+                    <div>
+                        <p class="eyebrow">ENTITY MANAGEMENT</p>
+                        <h1>Entities</h1>
+                        <p class="page-description">
+                            View and manage extracted entities.
+                        </p>
+                    </div>
+
+                    <button class="btn btn-primary">＋ Add Entity</button>
+                </div>
+
+                <div class="filter-bar">
+                    <div class="search-field">
+                        <span>⌕</span>
+                        <input type="text" placeholder="Search entities...">
+                    </div>
+
+                    <select>
+                        <option>Filter by type</option>
+                        <option>Person</option>
+                        <option>Phone</option>
+                        <option>Location</option>
+                        <option>Organization</option>
+                    </select>
+                </div>
+
+                <div class="panel">
+                    <div class="table-wrapper">
+                        <table class="data-table full-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Status</th>
+                                    <th>Connections</th>
+                                    <th>Last Updated</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>Person A</td>
+                                    <td><span class="entity-badge person-badge">Person</span></td>
+                                    <td><span class="status-badge status-review">Flagged</span></td>
+                                    <td>4</td>
+                                    <td>Apr 29, 2025</td>
+                                    <td><button class="table-action">View</button></td>
+                                </tr>
+
+                                <tr>
+                                    <td>9876543210</td>
+                                    <td><span class="entity-badge phone-badge">Phone</span></td>
+                                    <td><span class="status-badge status-new">Normal</span></td>
+                                    <td>3</td>
+                                    <td>Apr 28, 2025</td>
+                                    <td><button class="table-action">View</button></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Delhi</td>
+                                    <td><span class="entity-badge location-badge">Location</span></td>
+                                    <td><span class="status-badge status-new">Normal</span></td>
+                                    <td>2</td>
+                                    <td>Apr 27, 2025</td>
+                                    <td><button class="table-action">View</button></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Company Y</td>
+                                    <td><span class="entity-badge organization-badge">Organization</span></td>
+                                    <td><span class="status-badge status-review">Alert Review</span></td>
+                                    <td>5</td>
+                                    <td>Apr 26, 2025</td>
+                                    <td><button class="table-action">View</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- REPORTS PAGE -->
+            <section class="page" id="page-reports">
+
+                <div class="page-heading">
+                    <div>
+                        <p class="eyebrow">INTELLIGENCE REPORTING</p>
+                        <h1>Reports</h1>
+                        <p class="page-description">
+                            Generate and export intelligence reports.
+                        </p>
+                    </div>
+
+                    <button class="btn btn-primary" id="generateReportBtn">
+                        Generate Report
+                    </button>
+                </div>
+
+                <div class="report-generator-grid">
+
+                    <div class="panel">
+                        <div class="panel-header">
+                            <div>
+                                <p class="eyebrow">REPORT CONFIGURATION</p>
+                                <h2>Create Report</h2>
+                            </div>
+                        </div>
+
+                        <label class="form-label">Select Case</label>
+                        <select class="full-input">
+                            <option>CN-2025-001 — Financial Fraud Network</option>
+                            <option>CN-2025-002 — Organized Crime Syndicate</option>
+                            <option>CN-2025-003 — Cyber Extortion Ring</option>
+                        </select>
+
+                        <label class="form-label">Report Format</label>
+
+                        <div class="format-options">
+                            <label class="format-option selected">
+                                <input type="radio" name="reportFormat" checked>
+                                <span>PDF</span>
+                            </label>
+
+                            <label class="format-option">
+                                <input type="radio" name="reportFormat">
+                                <span>DOCX</span>
+                            </label>
+
+                            <label class="format-option">
+                                <input type="radio" name="reportFormat">
+                                <span>HTML</span>
+                            </label>
+                        </div>
+
+                        <button class="btn btn-primary full-button" id="createReportBtn">
+                            Generate Report
+                        </button>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel-header">
+                            <div>
+                                <p class="eyebrow">REPORT PREVIEW</p>
+                                <h2>Case Report</h2>
+                            </div>
+                        </div>
+
+                        <div class="report-preview">
+                            <div class="report-preview-icon">▤</div>
+                            <strong>Financial Fraud Network</strong>
+                            <span>CN-2025-001</span>
+                            <small>Last generated Apr 29, 2025</small>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="panel recent-reports-panel">
+                    <div class="panel-header">
+                        <div>
+                            <p class="eyebrow">DOCUMENT ARCHIVE</p>
+                            <h2>Recent Reports</h2>
+                        </div>
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table class="data-table full-table">
+                            <thead>
+                                <tr>
+                                    <th>Report Name</th>
+                                    <th>Type</th>
+                                    <th>Date</th>
+                                    <th>Case</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>CN-2025-001_Case_Report.pdf</td>
+                                    <td>Case Report</td>
+                                    <td>Apr 29, 2025</td>
+                                    <td>CN-2025-001</td>
+                                    <td><button class="table-action">Download</button></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Network_Summary_CN-2025-001.pdf</td>
+                                    <td>Network Report</td>
+                                    <td>Apr 28, 2025</td>
+                                    <td>CN-2025-001</td>
+                                    <td><button class="table-action">Download</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- SETTINGS PAGE -->
+            <section class="page" id="page-settings">
+
+                <div class="page-heading">
+                    <div>
+                        <p class="eyebrow">SYSTEM CONFIGURATION</p>
+                        <h1>Settings</h1>
+                        <p class="page-description">
+                            Manage application preferences, notifications, security, and support.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="settings-layout">
+
+                    <aside class="settings-menu">
+                        <button class="settings-tab active" data-settings-tab="appearance">
+                            <span>◐</span>
+                            Appearance
+                        </button>
+
+                        <button class="settings-tab" data-settings-tab="notifications">
+                            <span>♢</span>
+                            Notifications
+                        </button>
+
+                        <button class="settings-tab" data-settings-tab="security">
+                            <span>▣</span>
+                            Security
+                        </button>
+
+                        <button class="settings-tab" data-settings-tab="privacy">
+                            <span>◈</span>
+                            Privacy & Data
+                        </button>
+
+                        <button class="settings-tab" data-settings-tab="help">
+                            <span>?</span>
+                            Help & Support
+                        </button>
+
+                        <button class="settings-tab" data-settings-tab="about">
+                            <span>ⓘ</span>
+                            About CrimeNet
+                        </button>
+
+                        <button class="settings-tab" data-settings-tab="account">
+                            <span>↪</span>
+                            Account Actions
+                        </button>
+                    </aside>
+
+                    <div class="settings-content">
+
+                        <!-- Appearance -->
+                        <div class="settings-section active-settings-section" id="settings-appearance">
+                            <div class="settings-section-heading">
+                                <p class="eyebrow">INTERFACE PREFERENCES</p>
+                                <h2>Appearance</h2>
+                            </div>
+
+                            <div class="settings-card">
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Theme selection</strong>
+                                        <span>Choose how CrimeNet looks.</span>
+                                    </div>
+
+                                    <select id="themeSelect">
+                                        <option value="dark">Dark Navy</option>
+                                        <option value="light">Light</option>
+                                    </select>
+                                </div>
+
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Display density</strong>
+                                        <span>Control the spacing across the application.</span>
+                                    </div>
+
+                                    <select id="densitySelect">
+                                        <option value="comfortable">Comfortable</option>
+                                        <option value="compact">Compact</option>
+                                    </select>
+                                </div>
+
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Sidebar behavior</strong>
+                                        <span>Choose whether the sidebar stays expanded.</span>
+                                    </div>
+
+                                    <label class="switch">
+                                        <input type="checkbox" id="sidebarBehavior" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Notifications -->
+                        <div class="settings-section" id="settings-notifications">
+                            <div class="settings-section-heading">
+                                <p class="eyebrow">ALERT PREFERENCES</p>
+                                <h2>Notifications</h2>
+                            </div>
+
+                            <div class="settings-card">
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Case-processing notifications</strong>
+                                        <span>Receive updates when source processing finishes.</span>
+                                    </div>
+
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Flag and alert notifications</strong>
+                                        <span>Receive alerts for suspicious connections.</span>
+                                    </div>
+
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>System announcements</strong>
+                                        <span>Receive platform maintenance and update notices.</span>
+                                    </div>
+
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Security -->
+                        <div class="settings-section" id="settings-security">
+                            <div class="settings-section-heading">
+                                <p class="eyebrow">ACCESS CONTROL</p>
+                                <h2>Security</h2>
+                            </div>
+
+                            <div class="settings-card">
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Two-factor authentication</strong>
+                                        <span>Add an additional layer of login security.</span>
+                                    </div>
+
+                                    <button class="btn btn-secondary btn-small">
+                                        Enable
+                                    </button>
+                                </div>
+
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Active sessions</strong>
+                                        <span>Review devices currently signed in.</span>
+                                    </div>
+
+                                    <button class="text-link">View sessions →</button>
+                                </div>
+
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Login history</strong>
+                                        <span>Review recent account access activity.</span>
+                                    </div>
+
+                                    <button class="text-link">View history →</button>
+                                </div>
+
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Password management</strong>
+                                        <span>Update your account password.</span>
+                                    </div>
+
+                                    <button class="btn btn-secondary btn-small">
+                                        Change Password
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Privacy -->
+                        <div class="settings-section" id="settings-privacy">
+                            <div class="settings-section-heading">
+                                <p class="eyebrow">DATA CONTROL</p>
+                                <h2>Privacy & Data</h2>
+                            </div>
+
+                            <div class="settings-card">
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Activity logging</strong>
+                                        <span>Allow CrimeNet to record application activity.</span>
+                                    </div>
+
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Data export</strong>
+                                        <span>Export your application data.</span>
+                                    </div>
+
+                                    <button class="btn btn-secondary btn-small" id="exportDataBtn">
+                                        Export Data
+                                    </button>
+                                </div>
+
+                                <div class="setting-row danger-setting">
+                                    <div>
+                                        <strong>Clear local application data</strong>
+                                        <span>Remove locally stored CrimeNet data from this browser.</span>
+                                    </div>
+
+                                    <button class="btn btn-danger btn-small" id="clearDataBtn">
+                                        Clear Data
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Help -->
+                        <div class="settings-section" id="settings-help">
+                            <div class="settings-section-heading">
+                                <p class="eyebrow">ASSISTANCE CENTER</p>
+                                <h2>Help & Support</h2>
+                            </div>
+
+                            <div class="help-grid">
+                                <button class="help-card">
+                                    <span class="help-card-icon">?</span>
+                                    <strong>Help Center</strong>
+                                    <small>Browse guides and platform documentation.</small>
+                                    <span class="text-link">Open →</span>
+                                </button>
+
+                                <button class="help-card">
+                                    <span class="help-card-icon">▤</span>
+                                    <strong>Frequently Asked Questions</strong>
+                                    <small>Find answers to common questions.</small>
+                                    <span class="text-link">View FAQs →</span>
+                                </button>
+
+                                <button class="help-card">
+                                    <span class="help-card-icon">✉</span>
+                                    <strong>Contact Support</strong>
+                                    <small>Reach the CrimeNet support team.</small>
+                                    <span class="text-link">Contact →</span>
+                                </button>
+
+                                <button class="help-card">
+                                    <span class="help-card-icon">⚑</span>
+                                    <strong>Report a Problem</strong>
+                                    <small>Tell us about an issue or unexpected behavior.</small>
+                                    <span class="text-link">Report →</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- About -->
+                        <div class="settings-section" id="settings-about">
+                            <div class="settings-section-heading">
+                                <p class="eyebrow">PLATFORM INFORMATION</p>
+                                <h2>About CrimeNet</h2>
+                            </div>
+
+                            <div class="settings-card">
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Application version</strong>
+                                        <span>Current CrimeNet release.</span>
+                                    </div>
+
+                                    <span class="version-badge">v1.0.0</span>
+                                </div>
+
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Terms of use</strong>
+                                        <span>Review the terms governing platform usage.</span>
+                                    </div>
+
+                                    <button class="text-link">Read terms →</button>
+                                </div>
+
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Privacy policy</strong>
+                                        <span>Learn how application data is handled.</span>
+                                    </div>
+
+                                    <button class="text-link">Read policy →</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Account -->
+                        <div class="settings-section" id="settings-account">
+                            <div class="settings-section-heading">
+                                <p class="eyebrow">ACCOUNT MANAGEMENT</p>
+                                <h2>Account Actions</h2>
+                            </div>
+
+                            <div class="settings-card">
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Logout</strong>
+                                        <span>Sign out of the CrimeNet application.</span>
+                                    </div>
+
+                                    <button class="btn btn-danger btn-small" id="settingsLogoutBtn">
+                                        Logout
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- PROFILE PAGE -->
+            <section class="page" id="page-profile">
+
+                <div class="page-heading">
+                    <div>
+                        <p class="eyebrow">ACCOUNT IDENTITY</p>
+                        <h1>Administrator Profile</h1>
+                        <p class="page-description">
+                            View and update your CrimeNet profile information.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="profile-layout">
+
+                    <div class="panel profile-summary-panel">
+
+                        <div class="profile-cover"></div>
+
+                        <div class="profile-summary-content">
+
+                            <div class="profile-avatar-wrapper">
+                                <div class="profile-avatar" id="profileAvatar">AD</div>
+
+                                <label class="avatar-upload-btn" for="profilePhotoInput">
+                                    ✎
+                                </label>
+
+                                <input type="file" id="profilePhotoInput" accept="image/*" hidden>
+                            </div>
+
+                            <h2 id="profileDisplayName">Administrator</h2>
+                            <p id="profileDisplayRole">Senior Investigator</p>
+
+                            <span class="status-online profile-status">
+                                <i></i> Account Active
+                            </span>
+
+                            <div class="profile-meta">
+                                <div>
+                                    <span>Department</span>
+                                    <strong>Criminal Intelligence</strong>
+                                </div>
+
+                                <div>
+                                    <span>Employee ID</span>
+                                    <strong>CN-ADM-001</strong>
+                                </div>
+
+                                <div>
+                                    <span>Joined</span>
+                                    <strong>January 2025</strong>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="panel profile-edit-panel">
+
+                        <div class="panel-header">
+                            <div>
+                                <p class="eyebrow">PERSONAL INFORMATION</p>
+                                <h2>Edit Profile</h2>
+                            </div>
+                        </div>
+
+                        <form id="profileForm">
+
+                            <div class="form-grid">
+                                <div>
+                                    <label class="form-label" for="firstName">First Name</label>
+                                    <input
+                                        class="full-input"
+                                        type="text"
+                                        id="firstName"
+                                        value="Administrator"
+                                    >
+                                </div>
+
+                                <div>
+                                    <label class="form-label" for="lastName">Last Name</label>
+                                    <input
+                                        class="full-input"
+                                        type="text"
+                                        id="lastName"
+                                        value=""
+                                    >
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="form-label" for="profileEmail">Email Address</label>
+                                <input
+                                    class="full-input"
+                                    type="email"
+                                    id="profileEmail"
+                                    value="administrator@crimenet.local"
+                                >
+                            </div>
+
+                            <div>
+                                <label class="form-label" for="profileRole">Role</label>
+                                <input
+                                    class="full-input"
+                                    type="text"
+                                    id="profileRole"
+                                    value="Senior Investigator"
+                                >
+                            </div>
+
+                            <div>
+                                <label class="form-label" for="profileDepartment">Department</label>
+                                <input
+                                    class="full-input"
+                                    type="text"
+                                    id="profileDepartment"
+                                    value="Criminal Intelligence"
+                                >
+                            </div>
+
+                            <div class="profile-form-actions">
+                                <button type="button" class="btn btn-secondary" id="cancelProfileBtn">
+                                    Cancel
+                                </button>
+
+                                <button type="submit" class="btn btn-primary">
+                                    Save Changes
+                                </button>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- New Case Modal -->
+<div class="modal-overlay" id="caseModal">
+    <div class="modal">
+
+        <div class="modal-header">
+            <div>
+                <p class="eyebrow">CASE CREATION</p>
+                <h2>Create New Case</h2>
+            </div>
+
+            <button class="modal-close" id="closeCaseModal">×</button>
+        </div>
+
+        <form id="newCaseForm">
+
+            <label class="form-label">Case Title</label>
+            <input
+                class="full-input"
+                type="text"
+                id="newCaseTitle"
+                placeholder="Enter case title"
+                required
+            >
+
+            <label class="form-label">Priority</label>
+            <select class="full-input" id="newCasePriority">
+                <option>High</option>
+                <option>Medium</option>
+                <option>Low</option>
+            </select>
+
+            <label class="form-label">Description</label>
+            <textarea
+                class="full-input textarea-input"
+                id="newCaseDescription"
+                placeholder="Enter case description"
+            ></textarea>
+
+            <div class="modal-actions">
+                <button type="button" class="btn btn-secondary" id="cancelCaseBtn">
+                    Cancel
+                </button>
+
+                <button type="submit" class="btn btn-primary">
+                    Create Case
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CrimeNet Intelligence Platform</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app-shell">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="brand">
+            <div class="brand-mark">
+                <div class="brand-shield">
+                    <span>✦</span>
+                </div>
+            </div>
+
+            <div class="brand-text">
+                <strong>CRIMENET</strong>
+                <small>INTELLIGENCE • ANALYSIS • JUSTICE</small>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <p class="nav-label">MAIN MENU</p>
+
+            <a href="#dashboard" class="nav-item active" data-page="dashboard">
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="#cases" class="nav-item" data-page="cases">
+                <span class="nav-icon">▣</span>
+                <span>Cases</span>
+            </a>
+
+            <a href="#intelligence" class="nav-item" data-page="intelligence">
+                <span class="nav-icon">◈</span>
+                <span>Intelligence Hub</span>
+            </a>
+
+            <a href="#network" class="nav-item" data-page="network">
+                <span class="nav-icon">⌘</span>
+                <span>Network Analysis</span>
+            </a>
+
+            <a href="#entities" class="nav-item" data-page="entities">
+                <span class="nav-icon">♧</span>
+                <span>Entities</span>
+            </a>
+
+            <a href="#reports" class="nav-item" data-page="reports">
+                <span class="nav-icon">▤</span>
+                <span>Reports</span>
+            </a>
+
+            <p class="nav-label nav-label-space">SYSTEM</p>
+
+            <a href="#settings" class="nav-item" data-page="settings">
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="#profile" class="profile-mini" data-page="profile">
+                <div class="avatar avatar-small">AD</div>
+
+                <div class="profile-mini-text">
+                    <strong id="sidebarUserName">Administrator</strong>
+                    <span id="sidebarUserRole">Senior Investigator</span>
+                </div>
+
+                <span class="online-dot"></span>
+            </a>
+
+            <button class="logout-link" id="logoutBtn">
+                <span>↪</span>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- Main Area -->
+    <main class="main-content">
+
+        <!-- Topbar -->
+        <header class="topbar">
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                ☰
+            </button>
+
+            <div class="topbar-left">
+                <span class="breadcrumb-main" id="breadcrumbMain">Dashboard</span>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-current" id="breadcrumbCurrent">
+                    Overview
+                </span>
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="global-search">
+                    <span>⌕</span>
+                    <input
+                        type="text"
+                        id="globalSearch"
+                        placeholder="Search cases, entities, or keywords..."
+                    >
+                    <kbd>⌘ K</kbd>
+                </div>
+
+                <button class="topbar-icon-btn" title="Notifications">
+                    ♢
+                    <span class="notification-dot"></span>
+                </button>
+
+                <div class="date-display">
+                    <strong id="currentDate">Apr 29, 2025</strong>
+                    <span id="currentTime">10:24 AM</span>
+                </div>
+
+                <button class="topbar-icon-btn" id="themeToggle" title="Toggle theme">
+                    ☾
+                </button>
+
+            </div>
+
+        </header>
+
+        <!-- Page Content -->
+        <section class="page-container">
+
+            <!-- DASHBOARD PAGE -->
+            <section class="page active-page" id="page-dashboard">
+
+                <div class="page-heading dashboard-heading">
+                    <div>
+                        <p class="eyebrow">INTELLIGENCE OVERVIEW</p>
+                        <h1>Good morning, <span>Administrator</span></h1>
+                        <p class="page-description">
+                            Here’s what’s happening with your cases today.
+                        </p>
+                    </div>
+
+                    <div class="heading-actions">
+                        <button class="btn btn-secondary" data-page-link="reports">
+                            View Reports
+                        </button>
+
+                        <button class="btn btn-primary" data-page-link="cases">
+                            <span>＋</span>
+                            New Case
+                        </button>
+                    </div>
+                </div>
+
+                <div class="dashboard-connection">
+                    <span class="connection-line"></span>
+                    <span class="connection-icon">⌁</span>
+                    <div>
+                        <strong>CONNECTING THE DOTS</strong>
+                        <small>BEFORE CRIME CONNECTS THEM</small>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+
+                    <div class="stat-card stat-blue">
+                        <div class="stat-card-top">
+                            <div class="stat-icon">▣</div>
+                            <span class="stat-label">Total Cases</span>
+                        </div>
+
+                        <strong class="stat-value" id="dashboardCases">12</strong>
+
+                        <div class="stat-change positive">
+                            ↑ 2 new today
+                        </div>
+                    </div>
+
+                    <div class="stat-card stat-purple">
+                        <div class="stat-card-top">
+                            <div class="stat-icon">◎</div>
+                            <span class="stat-label">Active Investigations</span>
+                        </div>
+
+                        <strong class="stat-value" id="dashboardInvestigations">5</strong>
+
+                        <div class="stat-change positive">
+                            ↑ 1 in progress
+                        </div>
+                    </div>
+
+                    <div class="stat-card stat-teal">
+                        <div class="stat-card-top">
+                            <div class="stat-icon">♧</div>
+                            <span class="stat-label">Entities Found</span>
+                        </div>
+
+                        <strong class="stat-value" id="dashboardEntities">248</strong>
+
+                        <div class="stat-change positive">
+                            ↑ 12 new
+                        </div>
+                    </div>
+
+                    <div class="stat-card stat-orange">
+                        <div class="stat-card-top">
+                            <div class="stat-icon">△</div>
+                            <span class="stat-label">Flagged Connections</span>
+                        </div>
+
+                        <strong class="stat-value" id="dashboardFlags">17</strong>
+
+                        <div class="stat-change negative">
+                            ↑ 3 new alerts
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="dashboard-grid">
+
+                    <div class="panel recent-cases-panel">
+
+                        <div class="panel-header">
+                            <div>
+                                <p class="eyebrow">INVESTIGATION QUEUE</p>
+                                <h2>Recent Cases</h2>
+                            </div>
+
+                            <button class="text-link" data-page-link="cases">
+                                View all →
+                            </button>
+                        </div>
+
+                        <div class="table-wrapper">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Case ID</th>
+                                        <th>Title</th>
+                                        <th>Status</th>
+                                        <th>Last Updated</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="recentCasesTable">
+                                    <tr>
+                                        <td><span class="case-id"><i class="dot dot-cyan"></i>CN-2025-001</span></td>
+                                        <td>Financial Fraud Network</td>
+                                        <td><span class="status-badge status-progress">In Progress</span></td>
+                                        <td>Apr 29, 2025</td>
+                                        <td>›</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><span class="case-id"><i class="dot dot-purple"></i>CN-2025-002</span></td>
+                                        <td>Organized Crime Syndicate</td>
+                                        <td><span class="status-badge status-analysis">Analysis</span></td>
+                                        <td>Apr 28, 2025</td>
+                                        <td>›</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><span class="case-id"><i class="dot dot-blue"></i>CN-2025-003</span></td>
+                                        <td>Cyber Extortion Ring</td>
+                                        <td><span class="status-badge status-progress">In Progress</span></td>
+                                        <td>Apr 27, 2025</td>
+                                        <td>›</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><span class="case-id"><i class="dot dot-orange"></i>CN-2025-004</span></td>
+                                        <td>Money Laundering</td>
+                                        <td><span class="status-badge status-review">Review</span></td>
+                                        <td>Apr 26, 2025</td>
+                                        <td>›</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><span class="case-id"><i class="dot dot-red"></i>CN-2025-005</span></td>
+                                        <td>Identity Theft Network</td>
+                                        <td><span class="status-badge status-new">New</span></td>
+                                        <td>Apr 25, 2025</td>
+                                        <td>›</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div class="panel network-overview-panel">
+
+                        <div class="panel-header">
+                            <div>
+                                <p class="eyebrow">RELATIONSHIP MAPPING</p>
+                                <h2>Network Overview</h2>
+                            </div>
+
+                            <button class="text-link" data-page-link="network">
+                                View details →
+                            </button>
+                        </div>
+
+                        <div class="mini-network">
+                            <div class="network-node node-a">A</div>
+                            <div class="network-node node-b">B</div>
+                            <div class="network-node node-c">C</div>
+                            <div class="network-node node-d">D</div>
+                            <div class="network-node node-e">E</div>
+                            <div class="network-node node-f">F</div>
+
+                            <span class="network-line line-one"></span>
+                            <span class="network-line line-two"></span>
+                            <span class="network-line line-three"></span>
+                            <span class="network-line line-four"></span>
+                            <span class="network-line line-five"></span>
+                            <span class="network-line line-six"></span>
+                        </div>
+
+                        <div class="network-legend">
+                            <div><i class="legend-dot person"></i> Person <strong>12</strong></div>
+                            <div><i class="legend-dot phone"></i> Phone <strong>8</strong></div>
+                            <div><i class="legend-dot location"></i> Location <strong>6</strong></div>
+                            <div><i class="legend-dot organization"></i> Organization <strong>4</strong></div>
+                        </div>
+
+                        <div class="network-footer-stats">
+                            <div>
+                                <span>Total Nodes</span>
+                                <strong>30</strong>
+                            </div>
+
+                            <div>
+                                <span>Total Links</span>
+                                <strong>42</strong>
+                            </div>
+
+                            <div>
+                                <span>Density</span>
+                                <strong>28%</strong>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="bottom-dashboard-grid">
+
+                    <div class="panel activity-panel">
+                        <div class="panel-header">
+                            <div>
+                                <p class="eyebrow">CASE MOVEMENT</p>
+                                <h2>Relationship Activity</h2>
+                            </div>
+
+                            <select id="activityRange">
+                                <option value="7">Last 7 days</option>
+                                <option value="14">Last 14 days</option>
+                                <option value="30">Last 30 days</option>
+                            </select>
+                        </div>
+
+                        <div class="activity-chart">
+                            <div class="chart-bars">
+                                <span style="height: 35%"></span>
+                                <span style="height: 50%"></span>
+                                <span style="height: 42%"></span>
+                                <span style="height: 65%"></span>
+                                <span style="height: 58%"></span>
+                                <span style="height: 78%"></span>
+                                <span style="height: 90%"></span>
+                            </div>
+
+                            <div class="chart-labels">
+                                <span>Mon</span>
+                                <span>Tue</span>
+                                <span>Wed</span>
+                                <span>Thu</span>
+                                <span>Fri</span>
+                                <span>Sat</span>
+                                <span>Sun</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel system-status-panel">
+                        <div class="panel-header">
+                            <div>
+                                <p class="eyebrow">PLATFORM STATUS</p>
+                                <h2>System Status</h2>
+                            </div>
+
+                            <span class="status-online">
+                                <i></i> Operational
+                            </span>
+                        </div>
+
+                        <div class="system-status-list">
+                            <div>
+                                <span>Data Processing</span>
+                                <strong>Operational</strong>
+                            </div>
+
+                            <div>
+                                <span>Network Engine</span>
+                                <strong>Operational</strong>
+                            </div>
+
+                            <div>
+                                <span>Report Generator</span>
+                                <strong>Operational</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- CASES PAGE -->
+            <section class="page" id="page-cases">
+
+                <div class="page-heading">
+                    <div>
+                        <p class="eyebrow">INVESTIGATION MANAGEMENT</p>
+                        <h1>Cases</h1>
+                        <p class="page-description">
+                            Manage and track your investigations.
+                        </p>
+                    </div>
+
+                    <button class="btn btn-primary" id="newCaseBtn">
+                        ＋ New Case
+                    </button>
+                </div>
+
+                <div class="filter-bar">
+                    <div class="search-field">
+                        <span>⌕</span>
+                        <input type="text" id="caseSearch" placeholder="Search cases...">
+                    </div>
+
+                    <select id="caseStatusFilter">
+                        <option value="all">All Statuses</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Analysis">Analysis</option>
+                        <option value="Review">Review</option>
+                        <option value="New">New</option>
+                    </select>
+
+                    <select>
+                        <option>All Priorities</option>
+                        <option>High</option>
+                        <option>Medium</option>
+                        <option>Low</option>
+                    </select>
+                </div>
+
+                <div class="panel">
+                    <div class="table-wrapper">
+                        <table class="data-table full-table">
+                            <thead>
+                                <tr>
+                                    <th>Case ID</th>
+                                    <th>Title</th>
+                                    <th>Status</th>
+                                    <th>Priority</th>
+                                    <th>Entities</th>
+                                    <th>Last Updated</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="casesTable">
+                                <tr>
+                                    <td>CN-2025-001</td>
+                                    <td>Financial Fraud Network</td>
+                                    <td><span class="status-badge status-progress">In Progress</span></td>
+                                    <td><span class="priority-high">High</span></td>
+                                    <td>24</td>
+                                    <td>Apr 29, 2025</td>
+                                    <td><button class="table-action">Open</button></td>
+                                </tr>
+
+                                <tr>
+                                    <td>CN-2025-002</td>
+                                    <td>Organized Crime Syndicate</td>
+                                    <td><span class="status-badge status-analysis">Analysis</span></td>
+                                    <td><span class="priority-medium">Medium</span></td>
+                                    <td>18</td>
+                                    <td>Apr 28, 2025</td>
+                                    <td><button class="table-action">Open</button></td>
+                                </tr>
+
+                                <tr>
+                                    <td>CN-2025-003</td>
+                                    <td>Cyber Extortion Ring</td>
+                                    <td><span class="status-badge status-progress">In Progress</span></td>
+                                    <td><span class="priority-high">High</span></td>
+                                    <td>31</td>
+                                    <td>Apr 27, 2025</td>
+                                    <td><button class="table-action">Open</button></td>
+                                </tr>
+
+                                <tr>
+                                    <td>CN-2025-004</td>
+                                    <td>Money Laundering</td>
+                                    <td><span class="status-badge status-review">Review</span></td>
+                                    <td><span class="priority-medium">Medium</span></td>
+                                    <td>15</td>
+                                    <td>Apr 26, 2025</td>
+                                    <td><button class="table-action">Open</button></td>
+                                </tr>
+
+                                <tr>
+                                    <td>CN-2025-005</td>
+                                    <td>Identity Theft Network</td>
+                                    <td><span class="status-badge status-new">New</span></td>
+                                    <td><span class="priority-low">Low</span></td>
+                                    <td>9</td>
+                                    <td>Apr 25, 2025</td>
+                                    <td><button class="table-action">Open</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- INTELLIGENCE HUB PAGE -->
+            <section class="page" id="page-intelligence">
+
+                <div class="page-heading">
+                    <div>
+                        <p class="eyebrow">SOURCE PROCESSING & ANALYSIS</p>
+                        <h1>Intelligence Hub</h1>
+                        <p class="page-description">
+                            Upload, process, and analyze intelligence sources.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="intelligence-grid">
+
+                    <div class="panel upload-panel">
+                        <div class="panel-header">
+                            <div>
+                                <p class="eyebrow">SOURCE INGESTION</p>
+                                <h2>Upload Intelligence</h2>
+                            </div>
+                        </div>
+
+                        <label class="upload-zone" for="sourceUpload">
+                            <span class="upload-icon">⇧</span>
+                            <strong>Drop files here or click to upload</strong>
+                            <small>Supported: PDF, DOC, DOCX, TXT, CSV, XLSX, Images</small>
+                            <input type="file" id="sourceUpload" hidden multiple>
+                        </label>
+
+                        <div class="uploaded-files" id="uploadedFiles">
+                            <p>No files uploaded yet.</p>
+                        </div>
+                    </div>
+
+                    <div class="panel processing-panel">
+                        <div class="panel-header">
+                            <div>
+                                <p class="eyebrow">ANALYSIS PIPELINE</p>
+                                <h2>Processing</h2>
+                            </div>
+                        </div>
+
+                        <div class="processing-steps">
+                            <div class="processing-step complete">
+                                <span>✓</span>
+                                <div>
+                                    <strong>Extract Text</strong>
+                                    <small>Completed</small>
+                                </div>
+                            </div>
+
+                            <div class="processing-step active">
+                                <span>2</span>
+                                <div>
+                                    <strong>Entity Recognition</strong>
+                                    <small>Processing</small>
+                                </div>
+                            </div>
+
+                            <div class="processing-step">
+                                <span>3</span>
+                                <div>
+                                    <strong>Relationship Mapping</strong>
+                                    <small>Waiting</small>
+                                </div>
+                            </div>
+
+                            <div class="processing-step">
+                                <span>4</span>
+                                <div>
+                                    <strong>Intelligence Analysis</strong>
+                                    <small>Waiting</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="panel processing-results">
+                    <div class="panel-header">
+                        <div>
+                            <p class="eyebrow">EXTRACTION SUMMARY</p>
+                            <h2>Processing Results</h2>
+                        </div>
+
+                        <span class="status-online">
+                            <i></i> Processing complete
+                        </span>
+                    </div>
+
+                    <div class="result-cards">
+                        <div class="result-card">
+                            <span>Entities Found</span>
+                            <strong>23</strong>
+                        </div>
+
+                        <div class="result-card">
+                            <span>Relationships</span>
+                            <strong>16</strong>
+                        </div>
+
+                        <div class="result-card danger-result">
+                            <span>Flags Detected</span>
+                            <strong>5</strong>
+                        </div>
+
+                        <div class="result-card success-result">
+                            <span>Confidence Score</span>
+                            <strong>92%</strong>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- NETWORK PAGE -->
+            <section class="page" id="page-network">
+
+                <div class="page-heading">
+                    <div>
+                        <p class="eyebrow">RELATIONSHIP VISUALIZATION</p>
+                        <h1>Network Analysis</h1>
+                        <p class="page-description">
+                            Explore connections between people, organizations, locations, and devices.
+                        </p>
+                    </div>
+
+                    <div class="heading-actions">
+                        <button class="btn btn-secondary">Export Graph</button>
+                        <button class="btn btn-primary">＋ Add Entity</button>
+                    </div>
+                </div>
+
+                <div class="network-analysis-layout">
+
+                    <div class="panel graph-panel">
+                        <div class="panel-header">
+                            <div>
+                                <p class="eyebrow">ACTIVE NETWORK</p>
+                                <h2>Relationship Graph</h2>
+                            </div>
+
+                            <div class="graph-controls">
+                                <button>＋</button>
+                                <button>−</button>
+                                <button>⛶</button>
+                            </div>
+                        </div>
+
+                        <div class="large-network">
+                            <div class="large-node large-node-1">A</div>
+                            <div class="large-node large-node-2">B</div>
+                            <div class="large-node large-node-3">C</div>
+                            <div class="large-node large-node-4">D</div>
+                            <div class="large-node large-node-5">E</div>
+                            <div class="large-node large-node-6">F</div>
+                            <div class="large-node large-node-7">G</div>
+
+                            <span class="large-line l1"></span>
+                            <span class="large-line l2"></span>
+                            <span class="large-line l3"></span>
+                            <span class="large-line l4"></span>
+                            <span class="large-line l5"></span>
+                            <span class="large-line l6"></span>
+                            <span class="large-line l7"></span>
+                        </div>
+
+                        <div class="graph-legend">
+                            <span><i class="legend-dot person"></i> Person</span>
+                            <span><i class="legend-dot phone"></i> Phone</span>
+                            <span><i class="legend-dot location"></i> Location</span>
+                            <span><i class="legend-dot organization"></i> Organization</span>
+                        </div>
+                    </div>
+
+                    <div class="network-side-panels">
+
+                        <div class="panel">
+                            <div class="panel-header">
+                                <div>
+                                    <p class="eyebrow">NETWORK SUMMARY</p>
+                                    <h2>Overview</h2>
+                                </div>
+                            </div>
+
+                            <div class="summary-list">
+                                <div>
+                                    <span>Entities</span>
+                                    <strong>23</strong>
+                                </div>
+
+                                <div>
+                                    <span>Relationships</span>
+                                    <strong>14</strong>
+                                </div>
+
+                                <div>
+                                    <span>Groups</span>
+                                    <strong>3</strong>
+                                </div>
+
+                                <div>
+                                    <span>Risk Level</span>
+                                    <strong class="risk-high">High</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel selected-entity">
+                            <div class="panel-header">
+                                <div>
+                                    <p class="eyebrow">SELECTED ENTITY</p>
+                                    <h2>Person A</h2>
+                                </div>
+                            </div>
+
+                            <div class="selected-person">
+                                <div class="avatar">PA</div>
+
+                                <div>
+                                    <strong>Person A</strong>
+                                    <span>Primary subject</span>
+                                </div>
+
+                                <span class="status-badge status-progress">Active</span>
+                            </div>
+
+                            <div class="summary-list">
+                                <div>
+                                    <span>Type</span>
+                                    <strong>Person</strong>
+                                </div>
+
+                                <div>
+                                    <span>Status</span>
+                                    <strong>Under Review</strong>
+                                </div>
+
+                                <div>
+                                    <span>Connections</span>
+                                    <strong>4</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ENTITIES PAGE -->
+            <section class="page" id="page-entities">
+
+                <div class="page-heading">
+                    <div>
+                        <p class="eyebrow">ENTITY MANAGEMENT</p>
+                        <h1>Entities</h1>
+                        <p class="page-description">
+                            View and manage extracted entities.
+                        </p>
+                    </div>
+
+                    <button class="btn btn-primary">＋ Add Entity</button>
+                </div>
+
+                <div class="filter-bar">
+                    <div class="search-field">
+                        <span>⌕</span>
+                        <input type="text" placeholder="Search entities...">
+                    </div>
+
+                    <select>
+                        <option>Filter by type</option>
+                        <option>Person</option>
+                        <option>Phone</option>
+                        <option>Location</option>
+                        <option>Organization</option>
+                    </select>
+                </div>
+
+                <div class="panel">
+                    <div class="table-wrapper">
+                        <table class="data-table full-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Status</th>
+                                    <th>Connections</th>
+                                    <th>Last Updated</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>Person A</td>
+                                    <td><span class="entity-badge person-badge">Person</span></td>
+                                    <td><span class="status-badge status-review">Flagged</span></td>
+                                    <td>4</td>
+                                    <td>Apr 29, 2025</td>
+                                    <td><button class="table-action">View</button></td>
+                                </tr>
+
+                                <tr>
+                                    <td>9876543210</td>
+                                    <td><span class="entity-badge phone-badge">Phone</span></td>
+                                    <td><span class="status-badge status-new">Normal</span></td>
+                                    <td>3</td>
+                                    <td>Apr 28, 2025</td>
+                                    <td><button class="table-action">View</button></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Delhi</td>
+                                    <td><span class="entity-badge location-badge">Location</span></td>
+                                    <td><span class="status-badge status-new">Normal</span></td>
+                                    <td>2</td>
+                                    <td>Apr 27, 2025</td>
+                                    <td><button class="table-action">View</button></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Company Y</td>
+                                    <td><span class="entity-badge organization-badge">Organization</span></td>
+                                    <td><span class="status-badge status-review">Alert Review</span></td>
+                                    <td>5</td>
+                                    <td>Apr 26, 2025</td>
+                                    <td><button class="table-action">View</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- REPORTS PAGE -->
+            <section class="page" id="page-reports">
+
+                <div class="page-heading">
+                    <div>
+                        <p class="eyebrow">INTELLIGENCE REPORTING</p>
+                        <h1>Reports</h1>
+                        <p class="page-description">
+                            Generate and export intelligence reports.
+                        </p>
+                    </div>
+
+                    <button class="btn btn-primary" id="generateReportBtn">
+                        Generate Report
+                    </button>
+                </div>
+
+                <div class="report-generator-grid">
+
+                    <div class="panel">
+                        <div class="panel-header">
+                            <div>
+                                <p class="eyebrow">REPORT CONFIGURATION</p>
+                                <h2>Create Report</h2>
+                            </div>
+                        </div>
+
+                        <label class="form-label">Select Case</label>
+                        <select class="full-input">
+                            <option>CN-2025-001 — Financial Fraud Network</option>
+                            <option>CN-2025-002 — Organized Crime Syndicate</option>
+                            <option>CN-2025-003 — Cyber Extortion Ring</option>
+                        </select>
+
+                        <label class="form-label">Report Format</label>
+
+                        <div class="format-options">
+                            <label class="format-option selected">
+                                <input type="radio" name="reportFormat" checked>
+                                <span>PDF</span>
+                            </label>
+
+                            <label class="format-option">
+                                <input type="radio" name="reportFormat">
+                                <span>DOCX</span>
+                            </label>
+
+                            <label class="format-option">
+                                <input type="radio" name="reportFormat">
+                                <span>HTML</span>
+                            </label>
+                        </div>
+
+                        <button class="btn btn-primary full-button" id="createReportBtn">
+                            Generate Report
+                        </button>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel-header">
+                            <div>
+                                <p class="eyebrow">REPORT PREVIEW</p>
+                                <h2>Case Report</h2>
+                            </div>
+                        </div>
+
+                        <div class="report-preview">
+                            <div class="report-preview-icon">▤</div>
+                            <strong>Financial Fraud Network</strong>
+                            <span>CN-2025-001</span>
+                            <small>Last generated Apr 29, 2025</small>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="panel recent-reports-panel">
+                    <div class="panel-header">
+                        <div>
+                            <p class="eyebrow">DOCUMENT ARCHIVE</p>
+                            <h2>Recent Reports</h2>
+                        </div>
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table class="data-table full-table">
+                            <thead>
+                                <tr>
+                                    <th>Report Name</th>
+                                    <th>Type</th>
+                                    <th>Date</th>
+                                    <th>Case</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>CN-2025-001_Case_Report.pdf</td>
+                                    <td>Case Report</td>
+                                    <td>Apr 29, 2025</td>
+                                    <td>CN-2025-001</td>
+                                    <td><button class="table-action">Download</button></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Network_Summary_CN-2025-001.pdf</td>
+                                    <td>Network Report</td>
+                                    <td>Apr 28, 2025</td>
+                                    <td>CN-2025-001</td>
+                                    <td><button class="table-action">Download</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- SETTINGS PAGE -->
+            <section class="page" id="page-settings">
+
+                <div class="page-heading">
+                    <div>
+                        <p class="eyebrow">SYSTEM CONFIGURATION</p>
+                        <h1>Settings</h1>
+                        <p class="page-description">
+                            Manage application preferences, notifications, security, and support.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="settings-layout">
+
+                    <aside class="settings-menu">
+                        <button class="settings-tab active" data-settings-tab="appearance">
+                            <span>◐</span>
+                            Appearance
+                        </button>
+
+                        <button class="settings-tab" data-settings-tab="notifications">
+                            <span>♢</span>
+                            Notifications
+                        </button>
+
+                        <button class="settings-tab" data-settings-tab="security">
+                            <span>▣</span>
+                            Security
+                        </button>
+
+                        <button class="settings-tab" data-settings-tab="privacy">
+                            <span>◈</span>
+                            Privacy & Data
+                        </button>
+
+                        <button class="settings-tab" data-settings-tab="help">
+                            <span>?</span>
+                            Help & Support
+                        </button>
+
+                        <button class="settings-tab" data-settings-tab="about">
+                            <span>ⓘ</span>
+                            About CrimeNet
+                        </button>
+
+                        <button class="settings-tab" data-settings-tab="account">
+                            <span>↪</span>
+                            Account Actions
+                        </button>
+                    </aside>
+
+                    <div class="settings-content">
+
+                        <!-- Appearance -->
+                        <div class="settings-section active-settings-section" id="settings-appearance">
+                            <div class="settings-section-heading">
+                                <p class="eyebrow">INTERFACE PREFERENCES</p>
+                                <h2>Appearance</h2>
+                            </div>
+
+                            <div class="settings-card">
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Theme selection</strong>
+                                        <span>Choose how CrimeNet looks.</span>
+                                    </div>
+
+                                    <select id="themeSelect">
+                                        <option value="dark">Dark Navy</option>
+                                        <option value="light">Light</option>
+                                    </select>
+                                </div>
+
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Display density</strong>
+                                        <span>Control the spacing across the application.</span>
+                                    </div>
+
+                                    <select id="densitySelect">
+                                        <option value="comfortable">Comfortable</option>
+                                        <option value="compact">Compact</option>
+                                    </select>
+                                </div>
+
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Sidebar behavior</strong>
+                                        <span>Choose whether the sidebar stays expanded.</span>
+                                    </div>
+
+                                    <label class="switch">
+                                        <input type="checkbox" id="sidebarBehavior" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Notifications -->
+                        <div class="settings-section" id="settings-notifications">
+                            <div class="settings-section-heading">
+                                <p class="eyebrow">ALERT PREFERENCES</p>
+                                <h2>Notifications</h2>
+                            </div>
+
+                            <div class="settings-card">
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Case-processing notifications</strong>
+                                        <span>Receive updates when source processing finishes.</span>
+                                    </div>
+
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Flag and alert notifications</strong>
+                                        <span>Receive alerts for suspicious connections.</span>
+                                    </div>
+
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>System announcements</strong>
+                                        <span>Receive platform maintenance and update notices.</span>
+                                    </div>
+
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Security -->
+                        <div class="settings-section" id="settings-security">
+                            <div class="settings-section-heading">
+                                <p class="eyebrow">ACCESS CONTROL</p>
+                                <h2>Security</h2>
+                            </div>
+
+                            <div class="settings-card">
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Two-factor authentication</strong>
+                                        <span>Add an additional layer of login security.</span>
+                                    </div>
+
+                                    <button class="btn btn-secondary btn-small">
+                                        Enable
+                                    </button>
+                                </div>
+
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Active sessions</strong>
+                                        <span>Review devices currently signed in.</span>
+                                    </div>
+
+                                    <button class="text-link">View sessions →</button>
+                                </div>
+
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Login history</strong>
+                                        <span>Review recent account access activity.</span>
+                                    </div>
+
+                                    <button class="text-link">View history →</button>
+                                </div>
+
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Password management</strong>
+                                        <span>Update your account password.</span>
+                                    </div>
+
+                                    <button class="btn btn-secondary btn-small">
+                                        Change Password
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Privacy -->
+                        <div class="settings-section" id="settings-privacy">
+                            <div class="settings-section-heading">
+                                <p class="eyebrow">DATA CONTROL</p>
+                                <h2>Privacy & Data</h2>
+                            </div>
+
+                            <div class="settings-card">
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Activity logging</strong>
+                                        <span>Allow CrimeNet to record application activity.</span>
+                                    </div>
+
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Data export</strong>
+                                        <span>Export your application data.</span>
+                                    </div>
+
+                                    <button class="btn btn-secondary btn-small" id="exportDataBtn">
+                                        Export Data
+                                    </button>
+                                </div>
+
+                                <div class="setting-row danger-setting">
+                                    <div>
+                                        <strong>Clear local application data</strong>
+                                        <span>Remove locally stored CrimeNet data from this browser.</span>
+                                    </div>
+
+                                    <button class="btn btn-danger btn-small" id="clearDataBtn">
+                                        Clear Data
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Help -->
+                        <div class="settings-section" id="settings-help">
+                            <div class="settings-section-heading">
+                                <p class="eyebrow">ASSISTANCE CENTER</p>
+                                <h2>Help & Support</h2>
+                            </div>
+
+                            <div class="help-grid">
+                                <button class="help-card">
+                                    <span class="help-card-icon">?</span>
+                                    <strong>Help Center</strong>
+                                    <small>Browse guides and platform documentation.</small>
+                                    <span class="text-link">Open →</span>
+                                </button>
+
+                                <button class="help-card">
+                                    <span class="help-card-icon">▤</span>
+                                    <strong>Frequently Asked Questions</strong>
+                                    <small>Find answers to common questions.</small>
+                                    <span class="text-link">View FAQs →</span>
+                                </button>
+
+                                <button class="help-card">
+                                    <span class="help-card-icon">✉</span>
+                                    <strong>Contact Support</strong>
+                                    <small>Reach the CrimeNet support team.</small>
+                                    <span class="text-link">Contact →</span>
+                                </button>
+
+                                <button class="help-card">
+                                    <span class="help-card-icon">⚑</span>
+                                    <strong>Report a Problem</strong>
+                                    <small>Tell us about an issue or unexpected behavior.</small>
+                                    <span class="text-link">Report →</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- About -->
+                        <div class="settings-section" id="settings-about">
+                            <div class="settings-section-heading">
+                                <p class="eyebrow">PLATFORM INFORMATION</p>
+                                <h2>About CrimeNet</h2>
+                            </div>
+
+                            <div class="settings-card">
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Application version</strong>
+                                        <span>Current CrimeNet release.</span>
+                                    </div>
+
+                                    <span class="version-badge">v1.0.0</span>
+                                </div>
+
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Terms of use</strong>
+                                        <span>Review the terms governing platform usage.</span>
+                                    </div>
+
+                                    <button class="text-link">Read terms →</button>
+                                </div>
+
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Privacy policy</strong>
+                                        <span>Learn how application data is handled.</span>
+                                    </div>
+
+                                    <button class="text-link">Read policy →</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Account -->
+                        <div class="settings-section" id="settings-account">
+                            <div class="settings-section-heading">
+                                <p class="eyebrow">ACCOUNT MANAGEMENT</p>
+                                <h2>Account Actions</h2>
+                            </div>
+
+                            <div class="settings-card">
+                                <div class="setting-row">
+                                    <div>
+                                        <strong>Logout</strong>
+                                        <span>Sign out of the CrimeNet application.</span>
+                                    </div>
+
+                                    <button class="btn btn-danger btn-small" id="settingsLogoutBtn">
+                                        Logout
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- PROFILE PAGE -->
+            <section class="page" id="page-profile">
+
+                <div class="page-heading">
+                    <div>
+                        <p class="eyebrow">ACCOUNT IDENTITY</p>
+                        <h1>Administrator Profile</h1>
+                        <p class="page-description">
+                            View and update your CrimeNet profile information.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="profile-layout">
+
+                    <div class="panel profile-summary-panel">
+
+                        <div class="profile-cover"></div>
+
+                        <div class="profile-summary-content">
+
+                            <div class="profile-avatar-wrapper">
+                                <div class="profile-avatar" id="profileAvatar">AD</div>
+
+                                <label class="avatar-upload-btn" for="profilePhotoInput">
+                                    ✎
+                                </label>
+
+                                <input type="file" id="profilePhotoInput" accept="image/*" hidden>
+                            </div>
+
+                            <h2 id="profileDisplayName">Administrator</h2>
+                            <p id="profileDisplayRole">Senior Investigator</p>
+
+                            <span class="status-online profile-status">
+                                <i></i> Account Active
+                            </span>
+
+                            <div class="profile-meta">
+                                <div>
+                                    <span>Department</span>
+                                    <strong>Criminal Intelligence</strong>
+                                </div>
+
+                                <div>
+                                    <span>Employee ID</span>
+                                    <strong>CN-ADM-001</strong>
+                                </div>
+
+                                <div>
+                                    <span>Joined</span>
+                                    <strong>January 2025</strong>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="panel profile-edit-panel">
+
+                        <div class="panel-header">
+                            <div>
+                                <p class="eyebrow">PERSONAL INFORMATION</p>
+                                <h2>Edit Profile</h2>
+                            </div>
+                        </div>
+
+                        <form id="profileForm">
+
+                            <div class="form-grid">
+                                <div>
+                                    <label class="form-label" for="firstName">First Name</label>
+                                    <input
+                                        class="full-input"
+                                        type="text"
+                                        id="firstName"
+                                        value="Administrator"
+                                    >
+                                </div>
+
+                                <div>
+                                    <label class="form-label" for="lastName">Last Name</label>
+                                    <input
+                                        class="full-input"
+                                        type="text"
+                                        id="lastName"
+                                        value=""
+                                    >
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="form-label" for="profileEmail">Email Address</label>
+                                <input
+                                    class="full-input"
+                                    type="email"
+                                    id="profileEmail"
+                                    value="administrator@crimenet.local"
+                                >
+                            </div>
+
+                            <div>
+                                <label class="form-label" for="profileRole">Role</label>
+                                <input
+                                    class="full-input"
+                                    type="text"
+                                    id="profileRole"
+                                    value="Senior Investigator"
+                                >
+                            </div>
+
+                            <div>
+                                <label class="form-label" for="profileDepartment">Department</label>
+                                <input
+                                    class="full-input"
+                                    type="text"
+                                    id="profileDepartment"
+                                    value="Criminal Intelligence"
+                                >
+                            </div>
+
+                            <div class="profile-form-actions">
+                                <button type="button" class="btn btn-secondary" id="cancelProfileBtn">
+                                    Cancel
+                                </button>
+
+                                <button type="submit" class="btn btn-primary">
+                                    Save Changes
+                                </button>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- New Case Modal -->
+<div class="modal-overlay" id="caseModal">
+    <div class="modal">
+
+        <div class="modal-header">
+            <div>
+                <p class="eyebrow">CASE CREATION</p>
+                <h2>Create New Case</h2>
+            </div>
+
+            <button class="modal-close" id="closeCaseModal">×</button>
+        </div>
+
+        <form id="newCaseForm">
+
+            <label class="form-label">Case Title</label>
+            <input
+                class="full-input"
+                type="text"
+                id="newCaseTitle"
+                placeholder="Enter case title"
+                required
+            >
+
+            <label class="form-label">Priority</label>
+            <select class="full-input" id="newCasePriority">
+                <option>High</option>
+                <option>Medium</option>
+                <option>Low</option>
+            </select>
+
+            <label class="form-label">Description</label>
+            <textarea
+                class="full-input textarea-input"
+                id="newCaseDescription"
+                placeholder="Enter case description"
+            ></textarea>
+
+            <div class="modal-actions">
+                <button type="button" class="btn btn-secondary" id="cancelCaseBtn">
+                    Cancel
+                </button>
+
+                <button type="submit" class="btn btn-primary">
+                    Create Case
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

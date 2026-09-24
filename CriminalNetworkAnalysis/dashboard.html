@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>CRIMENET | Intelligence Analysis</title>
+
+    <!-- Dashboard CSS -->
+    <link
+        rel="stylesheet"
+        href="dashboard.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="dashboard-app">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- BRAND -->
+
+        <div class="brand">
+
+            <div class="brand-mark">
+                <span>C</span>
+            </div>
+
+            <div class="brand-text">
+
+                <strong>CRIMENET</strong>
+
+                <small>
+                    INTELLIGENCE ANALYSIS
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-divider"></div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="navigation">
+
+
+            <a
+                href="dashboard.html"
+                class="nav-item active"
+            >
+
+                <span class="nav-icon">⌂</span>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <a
+                href="cases.html"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">▣</span>
+
+                <span>
+                    Cases
+                </span>
+
+            </a>
+
+
+            <a
+                href="intelligence.html"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">◎</span>
+
+                <span>
+                    Intelligence Hub
+                </span>
+
+            </a>
+
+
+            <a
+                href="network.html"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">⌘</span>
+
+                <span>
+                    Network Analysis
+                </span>
+
+            </a>
+
+
+            <a
+                href="entities.html"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">♙</span>
+
+                <span>
+                    Entities
+                </span>
+
+            </a>
+
+
+            <a
+                href="reports.html"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">▤</span>
+
+                <span>
+                    Reports
+                </span>
+
+            </a>
+
+
+        </nav>
+
+
+        <!-- SIDEBAR BOTTOM -->
+
+        <div class="sidebar-bottom">
+
+
+            <a
+                href="settings.html"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">⚙</span>
+
+                <span>
+                    Settings
+                </span>
+
+            </a>
+
+
+            <a
+                href="login.html"
+                class="nav-item logout"
+            >
+
+                <span class="nav-icon">↪</span>
+
+                <span>
+                    Logout
+                </span>
+
+            </a>
+
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             TOP HEADER
+        ================================================== -->
+
+        <header class="top-header">
+
+
+            <!-- SEARCH -->
+
+            <div class="header-search">
+
+                <span>⌕</span>
+
+                <input
+                    type="text"
+                    placeholder="Search cases, entities or keywords..."
+                >
+
+            </div>
+
+
+            <!-- HEADER ACTIONS -->
+
+            <div class="header-actions">
+
+
+                <button
+                    class="header-icon"
+                    type="button"
+                    title="Notifications"
+                >
+                    ♢
+                </button>
+
+
+                <div class="header-date">
+
+                    <strong id="currentDate">
+                        —
+                    </strong>
+
+                    <span id="currentTime">
+                        —
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="header-icon"
+                    id="themeToggle"
+                    type="button"
+                    title="Theme"
+                >
+                    ◐
+                </button>
+
+
+                <div class="profile">
+
+
+                    <div class="profile-avatar">
+                        A
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            Analyst
+                        </strong>
+
+                        <small>
+                            Senior Investigator
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =================================================
+             WELCOME SECTION
+        ================================================== -->
+
+        <section class="welcome-section">
+
+
+            <div>
+
+                <h1>
+
+                    Good morning,
+                    <span>Analyst</span>
+
+                </h1>
+
+
+                <p>
+                    Here's what's happening with your cases today.
+                </p>
+
+            </div>
+
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
+                Intelligence system operational
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             STATISTICS
+        ================================================== -->
+
+        <section class="stats-grid">
+
+
+            <!-- TOTAL CASES -->
+
+            <div class="stat-card blue">
+
+
+                <div class="stat-top">
+
+                    <div class="stat-icon">
+                        ▣
+                    </div>
+
+                    <span class="stat-label">
+                        Total Cases
+                    </span>
+
+                </div>
+
+
+                <strong
+                    class="stat-number"
+                    id="dashboardCases"
+                >
+                    128
+                </strong>
+
+
+                <div class="stat-bottom">
+
+                    <span class="trend positive">
+                        ↑ 2 new today
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ACTIVE INVESTIGATIONS -->
+
+            <div class="stat-card purple">
+
+
+                <div class="stat-top">
+
+                    <div class="stat-icon">
+                        ◎
+                    </div>
+
+                    <span class="stat-label">
+                        Active Investigations
+                    </span>
+
+                </div>
+
+
+                <strong
+                    class="stat-number"
+                    id="dashboardNetworks"
+                >
+                    0
+                </strong>
+
+
+                <div class="stat-bottom">
+
+                    <span class="trend positive">
+                        ↑ In progress
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ENTITIES -->
+
+            <div class="stat-card cyan">
+
+
+                <div class="stat-top">
+
+                    <div class="stat-icon">
+                        ♙
+                    </div>
+
+                    <span class="stat-label">
+                        Entities Found
+                    </span>
+
+                </div>
+
+
+                <strong
+                    class="stat-number"
+                    id="dashboardEntities"
+                >
+                    0
+                </strong>
+
+
+                <div class="stat-bottom">
+
+                    <span class="trend positive">
+                        ↑ Identified
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- FLAGS -->
+
+            <div class="stat-card orange">
+
+
+                <div class="stat-top">
+
+                    <div class="stat-icon">
+                        !
+                    </div>
+
+                    <span class="stat-label">
+                        Flagged Connections
+                    </span>
+
+                </div>
+
+
+                <strong
+                    class="stat-number"
+                    id="dashboardFlags"
+                >
+                    0
+                </strong>
+
+
+                <div class="stat-bottom">
+
+                    <span class="trend warning">
+                        Review required
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             MAIN GRID
+        ================================================== -->
+
+        <section class="main-grid">
+
+
+            <!-- =================================================
+                 RECENT CASES
+            ================================================== -->
+
+            <div class="panel cases-panel">
+
+
+                <div class="panel-header">
+
+
+                    <div>
+
+                        <h2>
+                            Recent Cases
+                        </h2>
+
+                        <p>
+                            Latest intelligence investigations
+                        </p>
+
+                    </div>
+
+
+                    <a href="cases.html">
+                        View all →
+                    </a>
+
+
+                </div>
+
+
+
+                <div class="case-table">
+
+
+                    <!-- TABLE HEADER -->
+
+                    <div class="case-table-head">
+
+                        <span>
+                            Case ID
+                        </span>
+
+                        <span>
+                            Title
+                        </span>
+
+                        <span>
+                            Status
+                        </span>
+
+                        <span>
+                            Updated
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- CASE LIST -->
+
+                    <div
+                        class="case-list"
+                        id="caseList"
+                    >
+
+
+                        <!-- Demo case 1 -->
+
+                        <div class="case-row">
+
+                            <span class="case-id">
+                                CR-001
+                            </span>
+
+                            <span class="case-title">
+                                Network Investigation Alpha
+                            </span>
+
+                            <span>
+                                <span class="case-status">
+                                    Active
+                                </span>
+                            </span>
+
+                            <span class="case-updated">
+                                2m
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- Demo case 2 -->
+
+                        <div class="case-row">
+
+                            <span class="case-id">
+                                CR-002
+                            </span>
+
+                            <span class="case-title">
+                                Intelligence Review
+                            </span>
+
+                            <span>
+                                <span class="case-status">
+                                    Review
+                                </span>
+                            </span>
+
+                            <span class="case-updated">
+                                18m
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- Demo case 3 -->
+
+                        <div class="case-row">
+
+                            <span class="case-id">
+                                CR-003
+                            </span>
+
+                            <span class="case-title">
+                                Financial Relationship Analysis
+                            </span>
+
+                            <span>
+                                <span class="case-status">
+                                    Active
+                                </span>
+                            </span>
+
+                            <span class="case-updated">
+                                1h
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- Demo case 4 -->
+
+                        <div class="case-row">
+
+                            <span class="case-id">
+                                CR-004
+                            </span>
+
+                            <span class="case-title">
+                                Entity Connection Review
+                            </span>
+
+                            <span>
+                                <span class="case-status">
+                                    Pending
+                                </span>
+                            </span>
+
+                            <span class="case-updated">
+                                2h
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 NETWORK OVERVIEW
+            ================================================== -->
+
+            <div class="panel network-overview">
+
+
+                <div class="panel-header">
+
+
+                    <div>
+
+                        <h2>
+                            Network Overview
+                        </h2>
+
+                        <p>
+                            Current relationship intelligence
+                        </p>
+
+                    </div>
+
+
+                    <a href="network.html">
+                        View details →
+                    </a>
+
+
+                </div>
+
+
+
+                <div class="network-overview-body">
+
+
+                    <!-- GRAPH -->
+
+                    <div
+                        id="networkGraph"
+                        class="dashboard-network"
+                    >
+                    </div>
+
+
+
+                    <!-- LEGEND -->
+
+                    <div class="network-legend">
+
+
+                        <div>
+
+                            <i class="legend-person"></i>
+
+                            <span>
+                                Person
+                            </span>
+
+                            <strong id="personCount">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <i class="legend-phone"></i>
+
+                            <span>
+                                Phone
+                            </span>
+
+                            <strong id="phoneCount">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <i class="legend-location"></i>
+
+                            <span>
+                                Location
+                            </span>
+
+                            <strong id="locationCount">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <i class="legend-org"></i>
+
+                            <span>
+                                Organization
+                            </span>
+
+                            <strong id="orgCount">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- NETWORK METRICS -->
+
+                <div class="network-metrics">
+
+
+                    <div>
+
+                        <span>
+                            Total Nodes
+                        </span>
+
+                        <strong id="networkNodes">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Total Links
+                        </span>
+
+                        <strong id="networkLinks">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Density
+                        </span>
+
+                        <strong id="networkDensity">
+                            0%
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             SECOND ROW
+        ================================================== -->
+
+        <section class="content-grid">
+
+
+            <!-- =================================================
+                 RELATIONSHIP ACTIVITY
+            ================================================== -->
+
+            <div class="panel activity-panel">
+
+
+                <div class="panel-header">
+
+
+                    <div>
+
+                        <h2>
+                            Relationship Activity
+                        </h2>
+
+                        <p>
+                            Observed relationship activity over time
+                        </p>
+
+                    </div>
+
+
+                    <select
+                        id="trendRange"
+                    >
+
+                        <option value="7">
+                            7 Days
+                        </option>
+
+                        <option value="14">
+                            14 Days
+                        </option>
+
+                        <option value="30">
+                            30 Days
+                        </option>
+
+                    </select>
+
+
+                </div>
+
+
+
+                <div class="chart-container">
+
+                    <canvas
+                        id="activityChart"
+                    >
+                    </canvas>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 MOST CONNECTED ENTITIES
+            ================================================== -->
+
+            <div class="panel connected-panel">
+
+
+                <div class="panel-header">
+
+
+                    <div>
+
+                        <h2>
+                            Most Connected Entities
+                        </h2>
+
+                        <p>
+                            Entities with the highest number of
+                            observed relationships
+                        </p>
+
+                    </div>
+
+
+                    <a href="entities.html">
+                        View all →
+                    </a>
+
+
+                </div>
+
+
+
+                <div
+                    class="connected-list"
+                    id="connectedList"
+                >
+
+
+                    <!-- ENTITY 1 -->
+
+                    <div class="connected-row">
+
+
+                        <span class="connected-rank">
+                            01
+                        </span>
+
+
+                        <div class="connected-info">
+
+                            <span class="connected-name">
+                                Person A
+                            </span>
+
+                            <span class="connected-type">
+                                Person · High connectivity
+                            </span>
+
+                        </div>
+
+
+                        <span class="connected-count">
+                            28
+                        </span>
+
+
+                    </div>
+
+
+
+                    <!-- ENTITY 2 -->
+
+                    <div class="connected-row">
+
+
+                        <span class="connected-rank">
+                            02
+                        </span>
+
+
+                        <div class="connected-info">
+
+                            <span class="connected-name">
+                                Organization X
+                            </span>
+
+                            <span class="connected-type">
+                                Organization
+                            </span>
+
+                        </div>
+
+
+                        <span class="connected-count">
+                            21
+                        </span>
+
+
+                    </div>
+
+
+
+                    <!-- ENTITY 3 -->
+
+                    <div class="connected-row">
+
+
+                        <span class="connected-rank">
+                            03
+                        </span>
+
+
+                        <div class="connected-info">
+
+                            <span class="connected-name">
+                                Phone 98XX
+                            </span>
+
+                            <span class="connected-type">
+                                Phone
+                            </span>
+
+                        </div>
+
+
+                        <span class="connected-count">
+                            17
+                        </span>
+
+
+                    </div>
+
+
+
+                    <!-- ENTITY 4 -->
+
+                    <div class="connected-row">
+
+
+                        <span class="connected-rank">
+                            04
+                        </span>
+
+
+                        <div class="connected-info">
+
+                            <span class="connected-name">
+                                Location X
+                            </span>
+
+                            <span class="connected-type">
+                                Location
+                            </span>
+
+                        </div>
+
+
+                        <span class="connected-count">
+                            12
+                        </span>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             THIRD ROW
+        ================================================== -->
+
+        <section class="content-grid">
+
+
+            <!-- =================================================
+                 ANALYTICAL FLAGS
+            ================================================== -->
+
+            <div class="panel flags-panel">
+
+
+                <div class="panel-header">
+
+
+                    <div>
+
+                        <h2>
+                            Priority Analytical Flags
+                        </h2>
+
+                        <p>
+                            Patterns requiring investigator review
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div
+                    class="flag-list"
+                    id="flagList"
+                >
+
+
+                    <!-- FLAG 1 -->
+
+                    <div class="flag-item high">
+
+
+                        <div>
+
+                            <strong>
+                                Repeated connection pattern
+                            </strong>
+
+                            <p>
+                                Multiple relationships detected
+                                across intelligence sources.
+                            </p>
+
+                        </div>
+
+
+                        <span class="flag-severity">
+                            HIGH
+                        </span>
+
+
+                    </div>
+
+
+
+                    <!-- FLAG 2 -->
+
+                    <div class="flag-item medium">
+
+
+                        <div>
+
+                            <strong>
+                                Entity activity overlap
+                            </strong>
+
+                            <p>
+                                Related entities observed within
+                                the same investigation.
+                            </p>
+
+                        </div>
+
+
+                        <span class="flag-severity">
+                            MEDIUM
+                        </span>
+
+
+                    </div>
+
+
+
+                    <!-- FLAG 3 -->
+
+                    <div class="flag-item low">
+
+
+                        <div>
+
+                            <strong>
+                                New relationship detected
+                            </strong>
+
+                            <p>
+                                Recently identified connection
+                                requires review.
+                            </p>
+
+                        </div>
+
+
+                        <span class="flag-severity">
+                            REVIEW
+                        </span>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ENTITY DISTRIBUTION
+            ================================================== -->
+
+            <div class="panel distribution-panel">
+
+
+                <div class="panel-header">
+
+
+                    <div>
+
+                        <h2>
+                            Entity Distribution
+                        </h2>
+
+                        <p>
+                            Entities identified across processed
+                            intelligence
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="distribution-list">
+
+
+                    <div class="distribution-row">
+
+                        <span>
+                            People
+                        </span>
+
+                        <strong id="peopleDistribution">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="distribution-row">
+
+                        <span>
+                            Locations
+                        </span>
+
+                        <strong id="locationsDistribution">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="distribution-row">
+
+                        <span>
+                            Organizations
+                        </span>
+
+                        <strong id="organizationsDistribution">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="distribution-row">
+
+                        <span>
+                            Vehicles
+                        </span>
+
+                        <strong id="vehiclesDistribution">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="distribution-row">
+
+                        <span>
+                            Phone Numbers
+                        </span>
+
+                        <strong id="phonesDistribution">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             QUICK ACTIONS
+        ================================================== -->
+
+        <section class="quick-actions">
+
+
+            <button
+                type="button"
+                onclick="window.location.href='intelligence.html'"
+            >
+
+                <span>
+                    +
+                </span>
+
+                Add Intelligence
+
+            </button>
+
+
+
+            <button
+                type="button"
+                onclick="window.location.href='network.html'"
+            >
+
+                <span>
+                    ⌘
+                </span>
+
+                Network Analysis
+
+            </button>
+
+
+
+            <button
+                type="button"
+                onclick="window.location.href='reports.html'"
+            >
+
+                <span>
+                    ▤
+                </span>
+
+                Intelligence Reports
+
+            </button>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             DISCLAIMER
+        ================================================== -->
+
+        <div class="dashboard-disclaimer">
+
+
+            <strong>
+                Demo Environment:
+            </strong>
+
+
+            This dashboard uses synthetic/anonymized intelligence
+            information. Analytical flags indicate patterns requiring
+            review and are not proof of criminal activity or guilt.
+
+
+        </div>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     LIBRARIES
+========================================================== -->
+
+<script src="https://unpkg.com/cytoscape@3.29.2/dist/cytoscape.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<!-- Dashboard JavaScript -->
+
+<script src="dashboard.js"></script>
+
+
+</body>
+
+</html>
