@@ -7,8 +7,8 @@ class ApiClient {
   String? authToken;
 
   ApiClient({
-    this.baseUrl = 'http://localhost:8000',
-    this.timeout = const Duration(seconds: 4),
+    this.baseUrl = 'https://t-production-80a2.up.railway.app',
+    this.timeout = const Duration(seconds: 15),
   });
 
   Map<String, String> get _headers => {

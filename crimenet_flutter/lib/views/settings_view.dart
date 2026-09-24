@@ -120,7 +120,7 @@ class _SettingsViewState extends State<SettingsView> {
                           controller: _urlController,
                           decoration: const InputDecoration(
                             labelText: 'API Base URL',
-                            hintText: 'http://localhost:8000',
+                            hintText: 'https://t-production-80a2.up.railway.app',
                             prefixIcon: Icon(Icons.link, size: 20),
                           ),
                         ),
